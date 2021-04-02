@@ -93,16 +93,23 @@
               <p class="caption"><span class="caption-text">About:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about/philosofy.html">Philosofy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../about/platforms.html">Platforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/platforms.html">Platforms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about/platforms.html#supported-developement-platforms">Supported Developement Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about/platforms.html#supported-build-platforms">Supported Build Platforms</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#download">Download</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#github">Github</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setting-up-visual-studio">Setting Up Visual Studio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configurations">Configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#testing-the-setup">Testing the setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloning-the-repository">Cloning The Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#downloading-the-repository">Downloading The Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-visual-studio">Setting Up Visual Studio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configurations">Configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-the-setup">Testing the setup</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s Next?</a></li>
 </ul>
 </li>
@@ -197,46 +204,50 @@
             
   <div class="section" id="installation">
 <span id="getting-started-installation"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>This page describes the process to install the Zel Game Engine on your computer.</p>
+<p>This page describes the process to install the Zel Game Engine on your machine.</p>
 <div class="section" id="download">
 <h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
 <p>First you need to download the required files.
-There are two ways to receive these files.</p>
-<p>The first one is through cloning the <strong>Github</strong> repository.
-The repository can be found here: <strong>link to repository</strong></p>
-<p>Another way is to download the files.</p>
-<p>Both can be done by going to the following repository.
-[Link to Zel Game Engine repository](<a class="reference external" href="https://github.com/NVriezen/ZelGameEngine">https://github.com/NVriezen/ZelGameEngine</a>)</p>
+This can be done by cloning the Github repository or just downloading it directly.</p>
+<p>If you’ve never used Github before the recommended option is to go to <a class="reference internal" href="#downloading-rep"><span class="std std-ref">Downloading The Repository</span></a></p>
 </div>
-<div class="section" id="github">
-<h2>Github<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cloning-the-repository">
+<h2>Cloning The Repository<a class="headerlink" href="#cloning-the-repository" title="Permalink to this headline">¶</a></h2>
 <p>Cloning a repository won’t be explained in this documentation.
-Luckily there are plenty of resources out there including [Github’s own documentation](<a class="reference external" href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository</a>)</p>
-<p>When you have cloned the repository, you can skip to “Setting Up Visual Studio”.</p>
+Luckily there are plenty of resources out there including <a class="reference external" href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">Github’s own documentation</a>.</p>
+<p>The engine’s repository can be found <a class="reference external" href="https://github.com/NVriezen/ZelGameEngine">here</a>.</p>
+<p>When you have cloned the repository, you can skip to <a class="reference internal" href="#setting-up-vs"><span class="std std-ref">Setting Up Visual Studio</span></a>.</p>
+</div>
+<div class="section" id="downloading-the-repository">
+<span id="downloading-rep"></span><h2>Downloading The Repository<a class="headerlink" href="#downloading-the-repository" title="Permalink to this headline">¶</a></h2>
+<p>Downloading the engine is rather simple.
+Go to the engine’s repository <a class="reference external" href="https://github.com/NVriezen/ZelGameEngine">here</a>.
+Then click on the green “code” button and click on “Download Zip” in the dropdown menu.
+This way you’ll download the latest master version of the engine.</p>
 </div>
 <div class="section" id="setting-up-visual-studio">
-<h2>Setting Up Visual Studio<a class="headerlink" href="#setting-up-visual-studio" title="Permalink to this headline">¶</a></h2>
+<span id="setting-up-vs"></span><h2>Setting Up Visual Studio<a class="headerlink" href="#setting-up-visual-studio" title="Permalink to this headline">¶</a></h2>
 <p>Right now the engine has only been used with Visual Studio 2015.
 Other build environments won’t be supported anytime soon.
 Any Visual Studio version from VS2015 onwards should be good.</p>
-<div class="admonition-todo admonition" id="id1">
+<div class="admonition-todo admonition" id="id2">
 <p class="admonition-title">Todo</p>
 <p>add visual studio instructions</p>
 </div>
-</div>
 <div class="section" id="configurations">
-<h2>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline">¶</a></h2>
+<h3>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline">¶</a></h3>
 <p>The engine works with two configurations; <code class="docutils literal notranslate"><span class="pre">Debug</span></code> and <code class="docutils literal notranslate"><span class="pre">Release</span></code>.
 Some features will be disabled in the Release configuration in the future.
 Right now you can change some settings in ‘zel_engine_settings.h’ in the engine’s include folder.</p>
 </div>
 <div class="section" id="testing-the-setup">
-<h2>Testing the setup<a class="headerlink" href="#testing-the-setup" title="Permalink to this headline">¶</a></h2>
+<h3>Testing the setup<a class="headerlink" href="#testing-the-setup" title="Permalink to this headline">¶</a></h3>
 <p>At this point you should be able to run the project.
 Be sure to set the configuration on ‘Debug’.</p>
 <p>If everything went well, you won’t be seeing any build errors.
 A somewhat dark (blue) window should appear with a command prompt window.
 In the command prompt window you can see the engine’s version as well as “Hello World”.</p>
+</div>
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s Next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
