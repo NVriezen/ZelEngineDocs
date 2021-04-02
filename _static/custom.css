@@ -20,10 +20,10 @@
     --navbar-level-1-color: #c3e3ff;
     --navbar-level-2-color: #b8d6f0;
     --navbar-level-3-color: #a3c4e1;
-    --navbar-heading-color: #ffc700;
-    --navbar-scrollbar-color: #ffb500;
-    --navbar-scrollbar-hover-color: #ff9300;
-    --navbar-scrollbar-active-color: #e07500;
+    --navbar-heading-color: #ff7381;
+    --navbar-scrollbar-color: #d45a66;
+    --navbar-scrollbar-hover-color: #b14550;
+    --navbar-scrollbar-active-color: #72383e;
     --navbar-scrollbar-background: #131e2b;
 
     --link-color: #2980b9;
@@ -762,7 +762,7 @@ kbd, .kbd {
     /* Fixed size to prevent reflows and support hiDPI displays */
     /* A 5 pixel margin is added on each side. The logo itself displays at 200×200 at 100% scaling. */
     width: 210px;
-    /* height: 210px; */
+    height: 210px;
 }
 
 .wy-side-nav-search {
