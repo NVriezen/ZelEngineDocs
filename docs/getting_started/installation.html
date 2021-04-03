@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Installation &mdash; Zel Game Engine 0.1.0 documentation</title>
+  <title>Installation &mdash; Zel Game Engine 0.1.1 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Quick Start" href="quickstart.html" />
-    <link rel="prev" title="Platforms" href="../about/platforms.html" /> 
+    <link rel="next" title="Examples" href="../examples/index.html" />
+    <link rel="prev" title="Quick Start" href="quickstart.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,6 +101,15 @@
 </ul>
 <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#logic">Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#render">Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#termination">Termination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#what-s-next">What’s Next?</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#downloading-the-engine">Downloading The Engine</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cloning-the-repository">Cloning The Repository</a></li>
@@ -121,20 +130,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s Next?</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#setup">Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#hello-world">Hello World</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#what-s-next">What’s Next?</a></li>
-</ul>
-</li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../examples/rendering/rendering_triangle.html">Rendering a Triangle</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../examples/rendering/rendering_triangle.html#shader">Shader</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/rendering/rendering_triangle.html">Rendering a Triangle</a></li>
 </ul>
 </li>
 </ul>
@@ -229,7 +229,7 @@ It has most of the files needed for the engine.</p>
 <div class="section" id="downloading-the-repository">
 <span id="downloading-rep"></span><h3>Downloading The Repository<a class="headerlink" href="#downloading-the-repository" title="Permalink to this headline">¶</a></h3>
 <p>Downloading the engine is rather simple.
-Go to the engine’s repository <a class="reference external" href="https://github.com/NVriezen/ZelGameEngine">here</a>.
+Go to <a class="reference external" href="https://github.com/NVriezen/ZelGameEngine">the engine’s repository</a>.
 Then click on the green <strong>code</strong> button and click on <strong>Download Zip</strong> in the dropdown menu.
 This way you’ll download the latest master version of the engine.</p>
 </div>
@@ -238,7 +238,7 @@ This way you’ll download the latest master version of the engine.</p>
 <span id="setting-up-glfw"></span><h2>Downloading GLFW<a class="headerlink" href="#downloading-glfw" title="Permalink to this headline">¶</a></h2>
 <p>The engine uses GLFW to draw a window and manage inputs for us.
 We need to download GLFW and set it up in Visual Studio correctly.</p>
-<p>Download the correct pre-compiled binaries for your machine <a class="reference external" href="https://www.glfw.org/download.html">here</a>.</p>
+<p>Download the correct pre-compiled binaries for your machine <a class="reference external" href="https://www.glfw.org/download.html">in GLFW’s download section</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can build the binaries yourself if you want. Make sure you build GLFW 3.3.2 or higher.</p>
@@ -263,26 +263,27 @@ This should open a window where you’ll find <code class="docutils literal notr
 Select it and here we need to set up GLFW for the project.</p>
 <div class="section" id="include">
 <h4>Include<a class="headerlink" href="#include" title="Permalink to this headline">¶</a></h4>
-<p>Click the dropdown button in the <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">Directories</span></code> row and then “Edit…”.
+<p>Click the dropdown button in the <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">Directories</span></code> row on the right and then “Edit…”.
 You’ll see something like <code class="docutils literal notranslate"><span class="pre">$(SolutionDir)..\..\GLFW\glfw-3.3.2.bin.WIN64\include</span></code>.
-Change this path to where you stored the include folder of GLFW.</p>
+Change this path to where you stored the include folder of GLFW for the selected platform (in this example Windows 10 64-bit).</p>
 </div>
 <div class="section" id="library">
 <h4>Library<a class="headerlink" href="#library" title="Permalink to this headline">¶</a></h4>
-<p>Do the same for the <code class="docutils literal notranslate"><span class="pre">Library</span> <span class="pre">Directories</span></code> row as you did for the <em>Include Directories</em>.
-Make sure you select the right <code class="docutils literal notranslate"><span class="pre">lib-</span></code> folder based on your Visual Studio version.</p>
+<p>Do the same for the <code class="docutils literal notranslate"><span class="pre">Library</span> <span class="pre">Directories</span></code> row as you did for the <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">Directories</span></code>.
+Change the path to point to the correct <code class="docutils literal notranslate"><span class="pre">lib-</span></code> folder based on your Visual Studio version.</p>
+<p>Great! GLFW should be setup now.</p>
 </div>
 </div>
 <div class="section" id="configurations">
 <h3>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline">¶</a></h3>
-<p>The engine works with two configurations; <code class="docutils literal notranslate"><span class="pre">Debug</span></code> and <code class="docutils literal notranslate"><span class="pre">Release</span></code>.
+<p>The engine works with two configurations: <code class="docutils literal notranslate"><span class="pre">Debug</span></code> and <code class="docutils literal notranslate"><span class="pre">Release</span></code>.
 Some features will be disabled in the Release configuration in the future.
-Right now you can change some settings in ‘zel_engine_settings.h’ in the engine’s include folder.</p>
+Right now you can change some settings in <code class="docutils literal notranslate"><span class="pre">zel_engine_settings.h</span></code> in the engine’s include folder.</p>
 </div>
 <div class="section" id="testing-the-setup">
 <h3>Testing the setup<a class="headerlink" href="#testing-the-setup" title="Permalink to this headline">¶</a></h3>
 <p>At this point you should be able to run the project.
-Be sure to set the configuration on ‘Debug’.</p>
+Be sure to set the configuration on <code class="docutils literal notranslate"><span class="pre">Debug</span></code>.</p>
 <p>If everything went well, you won’t be seeing any build errors.
 A somewhat dark (blue) window should appear with a command prompt window.
 In the command prompt window you can see the engine’s version as well as “Hello World”.</p>
@@ -295,7 +296,7 @@ In the command prompt window you can see the engine’s version as well as “He
 <div class="section" id="what-s-next">
 <h2>What’s Next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
 <p>Now that you have everything setup, you can create your game.
-You may check out the <a href="#id3"><span class="problematic" id="id4">`Examples &lt;&gt;`_</span></a> or <a href="#id5"><span class="problematic" id="id6">`Tutorials &lt;&gt;`_</span></a> sections to help you get underway.
+You may check out the <a class="reference internal" href="../examples/index.html#examples"><span class="std std-ref">Examples</span></a> or <a class="reference internal" href="../tutorials/index.html#tutorials"><span class="std std-ref">Tutorials</span></a> sections to help you get underway.
 Otherwise check out the API Reference.</p>
 </div>
 </div>
@@ -306,8 +307,8 @@ Otherwise check out the API Reference.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../about/platforms.html" class="btn btn-neutral float-left" title="Platforms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../examples/index.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

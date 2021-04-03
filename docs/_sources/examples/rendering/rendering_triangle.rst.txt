@@ -1,9 +1,4 @@
 Rendering a Triangle
 ====================
-On this page you'll learn how to render a triangle in the Zel Game Engine.
-
-.. todo:: Fill this page with example
-
-Shader
-------
-We use the default shader for this example.
+The Rendering API is not re-implemented yet.
+Soon it will be back and this page will get updated.

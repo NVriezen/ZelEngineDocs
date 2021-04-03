@@ -24,17 +24,17 @@ Here you will find information regarding what features are available together wi
    :maxdepth: 2
    :caption: Getting Started:
 
-   getting_started/installation
    getting_started/quickstart
+   getting_started/installation
    
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Examples:
    
    examples/index
    
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Tutorials:
 
    tutorials/index
