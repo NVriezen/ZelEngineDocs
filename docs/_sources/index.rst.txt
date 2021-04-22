@@ -26,6 +26,13 @@ Here you will find information regarding what features are available together wi
 
    getting_started/quickstart
    getting_started/installation
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Basics
+
+   basics/levels
+   basics/components
    
 .. toctree::
    :maxdepth: 1
@@ -38,6 +45,12 @@ Here you will find information regarding what features are available together wi
    :caption: Tutorials:
 
    tutorials/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: API Reference:
+
+   api/index
 
 
 Indices and tables

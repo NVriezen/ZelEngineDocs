@@ -13,8 +13,12 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+import subprocess, os
 import sphinx_rtd_theme
+import breathe
 
+# Doxygen
+subprocess.call('doxygen ../doxygen/Doxyfile', shell=True)
 
 # -- Project information -----------------------------------------------------
 
@@ -35,6 +39,7 @@ extensions = [
     'recommonmark',
     'sphinx_rtd_theme',
     'sphinx.ext.todo',
+    'breathe',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -44,6 +49,8 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
+
+highlight_language = 'c++'
 
 # -- Options for reStructuredText parser ----------------------------------
 
@@ -86,3 +93,11 @@ html_theme_options = {
     'includehidden': True,
     'titles_only': False
 }
+
+# -- Breate -----------------------------------------------
+#
+breathe_projects = {
+    "zel" : "../_build/doxygen/zel/xml",
+}
+breathe_default_project = "zel"
+breathe_default_members = ('members', 'undoc-members')
