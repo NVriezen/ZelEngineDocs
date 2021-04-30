@@ -2,7 +2,7 @@
 
 Levels
 ======
-In the Zel Game Engine we use the word "level" to indicate a collection of entities. You can use these levels to create different menus or stages for your game.
+In the Zel Game Engine we use the word **level** to indicate a collection of entities. You can use these levels to create different menus or stages for your game.
 
 Creating a level
 ^^^^^^^^^^^^^^^^
@@ -14,6 +14,10 @@ To create a level you can use the function ``zel_level_create``.
 
 As you can see it returns a pointer to a struct called ``zel_level_t``.
 For more information on ``zel_level_t`` see :ref:`here<zel_level_t>`.
+
+.. note::
+
+	A level manager has not been implemented yet. So currently you need to set your level as the `active_level` in order to make the engine work.
 
 Registering components
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -48,3 +52,17 @@ This way you can determine which systems actually get used in a level.
 	zel_level_register_system(example_level, example_system_update, example_system_name);
 
 The function for registering needs the level of course, but also the system's update function and name. The name can be used to unregister the system again.
+
+Creating entities
+^^^^^^^^^^^^^^^^^
+Components can't exist on their own.
+They need to be attached to an entity.
+You can create an entity with ``zel_level_create_entity``.
+
+.. code-block:: cpp
+
+	zel_entity_id entity = zel_level_create_entity(example_level);
+
+This returns a ``zel_entity_id`` which identifies the entity inside the level.
+
+See the sections :ref:`Entities<entities>`, :ref:`Components<components>` and :ref:`Systems<systems>` for more information.

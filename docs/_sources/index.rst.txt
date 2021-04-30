@@ -11,7 +11,7 @@ Here you will find information regarding what features are available together wi
 
 .. tip:: If you want to get started straight away, please check out the :ref:`Quick Start<getting_started_quickstart>` page.
 
-.. note:: This is the documentation for **version 0.1.0** of the engine
+.. note:: This is the documentation for **version 0.0.22** of the engine
 
 .. toctree::
    :maxdepth: 2
@@ -30,21 +30,19 @@ Here you will find information regarding what features are available together wi
 .. toctree::
    :maxdepth: 2
    :caption: Basics
+   :glob:
 
    basics/levels
+   basics/entities
    basics/components
+   basics/systems
+   basics/rendering
    
 .. toctree::
    :maxdepth: 1
    :caption: Examples:
    
    examples/index
-   
-.. toctree::
-   :maxdepth: 1
-   :caption: Tutorials:
-
-   tutorials/index
 
 .. toctree::
    :maxdepth: 1

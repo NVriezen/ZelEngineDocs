@@ -101,5 +101,5 @@ In the command prompt window you can see the engine's version as well as "Hello 
 What's Next?
 ------------
 Now that you have everything setup, you can create your game.
-You may check out the :ref:`Examples<examples>` or :ref:`Tutorials <tutorials>` sections to help you get underway.
-Otherwise check out the API Reference.
+You may check out the :ref:`Examples<examples>` section to help you get underway.
+Otherwise check out the :ref:`API Reference<api>`.

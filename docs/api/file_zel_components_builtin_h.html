@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>zel_level_t &mdash; Zel Game Engine 0.1.1 documentation</title>
+  <title>zel_components_builtin.h &mdash; Zel Game Engine 0.1.1 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="zel_transform_t" href="struct_zel_transform_t.html" />
-    <link rel="prev" title="ZelComponent" href="class_ZelComponent.html" /> 
+    <link rel="next" title="zel_level.cpp" href="file_zel_level_cpp.html" />
+    <link rel="prev" title="zel_transform_t" href="struct_zel_transform_t.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -149,18 +149,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../basics/entities.html#creating-an-entity">Creating an entity</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../basics/components.html">Components</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basics/components.html#registering-components">Registering components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basics/components.html#adding-components">Adding components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basics/components.html#checking-getting-components">Checking &amp; getting components</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basics/systems.html">Systems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#registering-a-system">Registering a system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#entities-list-iterator">Entities list iterator</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../basics/rendering.html">Rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/components.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/systems.html">Systems</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -173,10 +163,10 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="class_ZelComponent.html">ZelComponent</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">zel_level_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct_zel_level_t.html">zel_level_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="struct_zel_transform_t.html">zel_transform_t</a></li>
-<li class="toctree-l2"><a class="reference internal" href="file_zel_component_builtin_h.html">zel_component_builtin.h</a></li>
-<li class="toctree-l2"><a class="reference internal" href="file_zel_level_h.html">zel_level.h</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">zel_components_builtin.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_zel_level_cpp.html">zel_level.cpp</a></li>
 </ul>
 </li>
 </ul>
@@ -229,13 +219,13 @@
         
           <li><a href="index.html">API Reference</a> &raquo;</li>
         
-      <li>zel_level_t</li>
+      <li>zel_components_builtin.h</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/api/struct_zel_level_t.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/file_zel_components_builtin_h.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -248,41 +238,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="zel-level-t">
-<span id="id1"></span><h1>zel_level_t<a class="headerlink" href="#zel-level-t" title="Permalink to this headline">¶</a></h1>
-<dl class="cpp struct">
-<dt id="_CPPv411zel_level_t">
-<span id="_CPPv311zel_level_t"></span><span id="_CPPv211zel_level_t"></span><span id="zel_level_t"></span><span class="target" id="structzel__level__t"></span><em class="property"><span class="pre">struct</span> </em><code class="sig-name descname"><span class="pre">zel_level_t</span></code><a class="headerlink" href="#_CPPv411zel_level_t" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
-<dl class="cpp var">
-<dt id="_CPPv4N11zel_level_t10level_nameE">
-<span id="_CPPv3N11zel_level_t10level_nameE"></span><span id="_CPPv2N11zel_level_t10level_nameE"></span><span id="zel_level_t::level_name__cCP"></span><span class="target" id="structzel__level__t_1ab0753644f1e0cedde24a0406c99207c9"></span><em class="property"><span class="pre">const</span></em> <span class="pre">char</span> <span class="pre">*</span><code class="sig-name descname"><span class="pre">level_name</span></code><a class="headerlink" href="#_CPPv4N11zel_level_t10level_nameE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N11zel_level_t10componentsE">
-<span id="_CPPv3N11zel_level_t10componentsE"></span><span id="_CPPv2N11zel_level_t10componentsE"></span><span id="zel_level_t::components__std::unordered_map:ss.ZelComponentBaseP:"></span><span class="target" id="structzel__level__t_1afe90a54ef1570d7ce2a032dc2d1f2c26"></span><span class="pre">std</span><span class="pre">::</span><span class="pre">unordered_map</span><span class="pre">&lt;</span><span class="pre">std</span><span class="pre">::</span><span class="pre">string</span><span class="pre">,</span> <span class="pre">ZelComponentBase</span><span class="pre">*</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">components</span></code><a class="headerlink" href="#_CPPv4N11zel_level_t10componentsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N11zel_level_t7systemsE">
-<span id="_CPPv3N11zel_level_t7systemsE"></span><span id="_CPPv2N11zel_level_t7systemsE"></span><span id="zel_level_t::systems__std::unordered_map:ss.zel_system_t:"></span><span class="target" id="structzel__level__t_1ae11567c06063a2f6d6a5b3113962c4b6"></span><span class="pre">std</span><span class="pre">::</span><span class="pre">unordered_map</span><span class="pre">&lt;</span><span class="pre">std</span><span class="pre">::</span><span class="pre">string</span><span class="pre">,</span> <span class="pre">zel_system_t</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">systems</span></code><a class="headerlink" href="#_CPPv4N11zel_level_t7systemsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N11zel_level_t8entitiesE">
-<span id="_CPPv3N11zel_level_t8entitiesE"></span><span id="_CPPv2N11zel_level_t8entitiesE"></span><span id="zel_level_t::entities__std::vector:uint8_t:"></span><span class="target" id="structzel__level__t_1a429f22be081592a6288d6e183d449501"></span><span class="pre">std</span><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><span class="pre">uint8_t</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">entities</span></code> <span class="pre">=</span> <span class="pre">{</span><span class="pre">0</span><span class="pre">}</span><a class="headerlink" href="#_CPPv4N11zel_level_t8entitiesE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt id="_CPPv4N11zel_level_t20empty_entities_spotsE">
-<span id="_CPPv3N11zel_level_t20empty_entities_spotsE"></span><span id="_CPPv2N11zel_level_t20empty_entities_spotsE"></span><span id="zel_level_t::empty_entities_spots__std::queue:uint32_t:"></span><span class="target" id="structzel__level__t_1aca27964e45b22ad2d2e8666b276be4d4"></span><span class="pre">std</span><span class="pre">::</span><span class="pre">queue</span><span class="pre">&lt;</span><span class="pre">uint32_t</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">empty_entities_spots</span></code><a class="headerlink" href="#_CPPv4N11zel_level_t20empty_entities_spotsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
+  <div class="section" id="zel-components-builtin-h">
+<span id="id1"></span><h1>zel_components_builtin.h<a class="headerlink" href="#zel-components-builtin-h" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfile: Cannot find file “zel_components_builtin.h </p>
 </div>
-</dd></dl>
-
 </div>
 
 
@@ -291,8 +252,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="struct_zel_transform_t.html" class="btn btn-neutral float-right" title="zel_transform_t" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="class_ZelComponent.html" class="btn btn-neutral float-left" title="ZelComponent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="file_zel_level_cpp.html" class="btn btn-neutral float-right" title="zel_level.cpp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="struct_zel_transform_t.html" class="btn btn-neutral float-left" title="zel_transform_t" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

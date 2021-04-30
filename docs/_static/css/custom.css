@@ -323,6 +323,15 @@ hr,
 }
 
 /* JavaScript documentation directives */
+html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple)>dt {
+    background-color: var(--admonition-note-background-color);
+    border-color: var(--admonition-note-title-background-color);
+    color: var(--admonition-note-color);
+}
+html.writer-html4 .rst-content dl:not(.docutils)>dt, html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple)>dt {
+   display: inline-block;
+}
+
 .rst-content dl:not(.docutils) dt {
     background-color: var(--admonition-note-background-color);
     border-color: var(--admonition-note-title-background-color);

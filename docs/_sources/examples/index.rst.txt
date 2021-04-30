@@ -9,4 +9,4 @@ The following examples are available:
    :maxdepth: 2
    :caption: Rendering:
    
-   rendering/rendering_triangle
+   rendering/rendering_sprite
