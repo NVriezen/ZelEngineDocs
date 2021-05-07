@@ -86,6 +86,10 @@ The engine works with two configurations: ``Debug`` and ``Release``.
 Some features will be disabled in the Release configuration in the future.
 Right now you can change some settings in ``zel_engine_settings.h`` in the engine's include folder.
 
+.. note::
+	
+	The output console where all the messages from ``zel_print`` will appear is only available in the ``Debug`` configuration.
+
 Testing the setup
 ^^^^^^^^^^^^^^^^^
 At this point you should be able to run the project.
