@@ -103,10 +103,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#user-code">User Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#initialization">Initialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#logic">Logic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#render">Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#termination">Termination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#including">Including</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#what-s-next">What’s Next?</a></li>
 </ul>
 </li>
@@ -149,8 +151,19 @@
 <li class="toctree-l2"><a class="reference internal" href="#creating-an-entity">Creating an entity</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="components.html">Components</a></li>
-<li class="toctree-l1"><a class="reference internal" href="systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components.html#registering-components">Registering components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#adding-components">Adding components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#checking-getting-components">Checking &amp; getting components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="systems.html">Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="systems.html#template">Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systems.html#registering-a-system">Registering a system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systems.html#entities-list-iterator">Entities list iterator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rendering.html">Rendering</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -164,9 +177,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/class_ZelComponent.html">ZelComponent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/struct_zel_level_t.html">zel_level_t</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/struct_zel_transform_t.html">zel_transform_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/file_zel_component_builtin_h.html">zel_component_builtin.h</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/file_zel_level_cpp.html">zel_level.cpp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/file_zel_level_h.html">zel_level.h</a></li>
 </ul>
 </li>
 </ul>
@@ -248,7 +260,7 @@ This way you can construct, for example, the player.</p>
 <p>Entities in this engine’s implementation are nothing more than 32-bit integers.</p>
 <div class="section" id="index">
 <h3>Index<a class="headerlink" href="#index" title="Permalink to this headline">¶</a></h3>
-<p>The bottom 24 bits, 0 to 23, represent an index. With this index an entity can be identified as it represents it’s position in an array, from here on called entity spot.
+<p>The bottom 24 bits, 0 to 23, represent an index. With this index an entity can be identified as it represents its position in an array, from here on called entity spot.
 Components can use this entity index to map components to that particular entity.</p>
 </div>
 <div class="section" id="generational-index">
@@ -271,7 +283,7 @@ This is nothing more than a type definition.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="kt">uint32_t</span> <span class="n">zel_entity_id</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>A 32-bit unsigned integer is used to represent an entity id, as was mentioned above. To learn more about how an entity id gets constructed, please see <a class="reference internal" href="../api/file_zel_level_cpp.html#zel-level-cpp"><span class="std std-ref">zel_level.cpp</span></a>.</p>
+<p>A 32-bit unsigned integer is used to represent an entity id, as was mentioned above. To learn more about how an entity id gets constructed, please see <a class="reference external" href="https://github.com/NVriezen/ZelGameEngine/blob/master/ZelGameEngine/include/zel_ecs.h#L11">zel_ecs.h</a>.</p>
 </div>
 </div>
 

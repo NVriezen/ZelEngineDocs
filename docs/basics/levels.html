@@ -103,10 +103,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#user-code">User Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#initialization">Initialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#logic">Logic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#render">Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#termination">Termination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#including">Including</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#what-s-next">What’s Next?</a></li>
 </ul>
 </li>
@@ -149,8 +151,19 @@
 <li class="toctree-l2"><a class="reference internal" href="entities.html#creating-an-entity">Creating an entity</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="components.html">Components</a></li>
-<li class="toctree-l1"><a class="reference internal" href="systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components.html#registering-components">Registering components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#adding-components">Adding components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#checking-getting-components">Checking &amp; getting components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="systems.html">Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="systems.html#template">Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systems.html#registering-a-system">Registering a system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systems.html#entities-list-iterator">Entities list iterator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rendering.html">Rendering</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -164,9 +177,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/class_ZelComponent.html">ZelComponent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/struct_zel_level_t.html">zel_level_t</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/struct_zel_transform_t.html">zel_transform_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/file_zel_component_builtin_h.html">zel_component_builtin.h</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/file_zel_level_cpp.html">zel_level.cpp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/file_zel_level_h.html">zel_level.h</a></li>
 </ul>
 </li>
 </ul>
@@ -247,8 +259,8 @@
 </div>
 <p>As you can see it returns a pointer to a struct called <code class="docutils literal notranslate"><span class="pre">zel_level_t</span></code>.
 For more information on <code class="docutils literal notranslate"><span class="pre">zel_level_t</span></code> see <a class="reference internal" href="../api/struct_zel_level_t.html#zel-level-t"><span class="std std-ref">here</span></a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>A level manager has not been implemented yet. So currently you need to set your level as the <cite>active_level</cite> in order to make the engine work.</p>
 </div>
 </div>

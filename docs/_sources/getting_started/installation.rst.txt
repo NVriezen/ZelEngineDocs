@@ -84,7 +84,7 @@ Configurations
 ^^^^^^^^^^^^^^
 The engine works with two configurations: ``Debug`` and ``Release``.
 Some features will be disabled in the Release configuration in the future.
-Right now you can change some settings in ``zel_engine_settings.h`` in the engine's include folder.
+Right now you can change some settings in ``zel_engine_settings.cpp`` in the engine's include folder.
 
 .. note::
 	

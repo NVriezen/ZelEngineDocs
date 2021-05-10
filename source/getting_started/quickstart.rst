@@ -4,10 +4,15 @@ Quick Start
 ===========
 This page describes the absolute minimum to get your project up and running
 
-
 Setup
 -----
-To setup the engine, please refer to :ref:`Installation<getting_started_installation>`
+To install the engine, please refer to :ref:`Installation<getting_started_installation>`
+
+User Code
+---------
+There are two projects, the ``ZelGameEngine`` which is the engine itself and ``Application`` which is your game.
+The engine will run certain functions from ``zel_entry.cpp`` included in the ``Application`` project.
+This is where you can plug your own code in.
 
 Initialization
 --------------
@@ -37,6 +42,12 @@ Termination
 -----------
 When the user wants to close the game ``zel_termination`` gets called.
 If you need to free any memory, you would be able to do so here.
+
+Including
+---------
+All functions and data containers that can be used in your application are exposed through ``zel_api.h`` which is always included in ``zel_entry.cpp``.
+When you want to use engine specific functions inside your own files you only need to include ``zel_api.h``.
+To see what exactly is available in the Zel API, please look at the ``zel_api.h`` file itself in the ``ZelGameEngine`` project.
 
 What's Next?
 ------------

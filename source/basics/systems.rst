@@ -6,6 +6,13 @@ Systems contain most of the logic. They process and manipulate the components.
 That means you only have input through a combination of components. These components are obtained through entities.
 Systems are in essence nothing more than a function.
 
+Template
+^^^^^^^^
+Systems always need to have the same parameters and a name.
+A template is included to make it easier to create systems.
+In the ``Application`` project's ``include`` folder you will find ``example_system.h``.
+Copy this code to create your own systems.
+
 Registering a system
 ^^^^^^^^^^^^^^^^^^^^
 Systems needs to be registered just like components.

@@ -15,7 +15,7 @@ Entities in this engine's implementation are nothing more than 32-bit integers.
 
 Index
 """""
-The bottom 24 bits, 0 to 23, represent an index. With this index an entity can be identified as it represents it's position in an array, from here on called entity spot.
+The bottom 24 bits, 0 to 23, represent an index. With this index an entity can be identified as it represents its position in an array, from here on called entity spot.
 Components can use this entity index to map components to that particular entity.
 
 Generational Index
@@ -42,4 +42,4 @@ This is nothing more than a type definition.
 
 	typedef uint32_t zel_entity_id;
 
-A 32-bit unsigned integer is used to represent an entity id, as was mentioned above. To learn more about how an entity id gets constructed, please see :ref:`zel_level.cpp<zel_level_cpp>`.
+A 32-bit unsigned integer is used to represent an entity id, as was mentioned above. To learn more about how an entity id gets constructed, please see `zel_ecs.h <https://github.com/NVriezen/ZelGameEngine/blob/master/ZelGameEngine/include/zel_ecs.h#L11>`_.

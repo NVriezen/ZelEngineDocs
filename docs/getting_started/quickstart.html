@@ -103,10 +103,12 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-code">User Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#initialization">Initialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#logic">Logic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#render">Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#termination">Termination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#including">Including</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s Next?</a></li>
 </ul>
 </li>
@@ -149,8 +151,19 @@
 <li class="toctree-l2"><a class="reference internal" href="../basics/entities.html#creating-an-entity">Creating an entity</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../basics/components.html">Components</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../basics/systems.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/components.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics/components.html#registering-components">Registering components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/components.html#adding-components">Adding components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/components.html#checking-getting-components">Checking &amp; getting components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/systems.html">Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#template">Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#registering-a-system">Registering a system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#entities-list-iterator">Entities list iterator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/rendering.html">Rendering</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -164,9 +177,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/class_ZelComponent.html">ZelComponent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/struct_zel_level_t.html">zel_level_t</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/struct_zel_transform_t.html">zel_transform_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/file_zel_component_builtin_h.html">zel_component_builtin.h</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/file_zel_level_cpp.html">zel_level.cpp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/file_zel_level_h.html">zel_level.h</a></li>
 </ul>
 </li>
 </ul>
@@ -241,7 +253,13 @@
 <p>This page describes the absolute minimum to get your project up and running</p>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>To setup the engine, please refer to <a class="reference internal" href="installation.html#getting-started-installation"><span class="std std-ref">Installation</span></a></p>
+<p>To install the engine, please refer to <a class="reference internal" href="installation.html#getting-started-installation"><span class="std std-ref">Installation</span></a></p>
+</div>
+<div class="section" id="user-code">
+<h2>User Code<a class="headerlink" href="#user-code" title="Permalink to this headline">¶</a></h2>
+<p>There are two projects, the <code class="docutils literal notranslate"><span class="pre">ZelGameEngine</span></code> which is the engine itself and <code class="docutils literal notranslate"><span class="pre">Application</span></code> which is your game.
+The engine will run certain functions from <code class="docutils literal notranslate"><span class="pre">zel_entry.cpp</span></code> included in the <code class="docutils literal notranslate"><span class="pre">Application</span></code> project.
+This is where you can plug your own code in.</p>
 </div>
 <div class="section" id="initialization">
 <h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h2>
@@ -268,6 +286,12 @@ It also forces you to think modulair and can help in certain situations to maint
 <h2>Termination<a class="headerlink" href="#termination" title="Permalink to this headline">¶</a></h2>
 <p>When the user wants to close the game <code class="docutils literal notranslate"><span class="pre">zel_termination</span></code> gets called.
 If you need to free any memory, you would be able to do so here.</p>
+</div>
+<div class="section" id="including">
+<h2>Including<a class="headerlink" href="#including" title="Permalink to this headline">¶</a></h2>
+<p>All functions and data containers that can be used in your application are exposed through <code class="docutils literal notranslate"><span class="pre">zel_api.h</span></code> which is always included in <code class="docutils literal notranslate"><span class="pre">zel_entry.cpp</span></code>.
+When you want to use engine specific functions inside your own files you only need to include <code class="docutils literal notranslate"><span class="pre">zel_api.h</span></code>.
+To see what exactly is available in the Zel API, please look at the <code class="docutils literal notranslate"><span class="pre">zel_api.h</span></code> file itself in the <code class="docutils literal notranslate"><span class="pre">ZelGameEngine</span></code> project.</p>
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s Next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>

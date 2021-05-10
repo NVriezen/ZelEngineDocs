@@ -15,7 +15,7 @@ To create a level you can use the function ``zel_level_create``.
 As you can see it returns a pointer to a struct called ``zel_level_t``.
 For more information on ``zel_level_t`` see :ref:`here<zel_level_t>`.
 
-.. note::
+.. warning::
 
 	A level manager has not been implemented yet. So currently you need to set your level as the `active_level` in order to make the engine work.
 

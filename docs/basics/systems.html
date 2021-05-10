@@ -103,10 +103,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#user-code">User Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#initialization">Initialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#logic">Logic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#render">Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#termination">Termination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#including">Including</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#what-s-next">What’s Next?</a></li>
 </ul>
 </li>
@@ -156,6 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#template">Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#registering-a-system">Registering a system</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#entities-list-iterator">Entities list iterator</a></li>
 </ul>
@@ -174,7 +177,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/class_ZelComponent.html">ZelComponent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/struct_zel_level_t.html">zel_level_t</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/struct_zel_transform_t.html">zel_transform_t</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/file_zel_component_builtin_h.html">zel_component_builtin.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/file_zel_level_h.html">zel_level.h</a></li>
 </ul>
@@ -251,6 +253,13 @@
 <p>Systems contain most of the logic. They process and manipulate the components.
 That means you only have input through a combination of components. These components are obtained through entities.
 Systems are in essence nothing more than a function.</p>
+<div class="section" id="template">
+<h2>Template<a class="headerlink" href="#template" title="Permalink to this headline">¶</a></h2>
+<p>Systems always need to have the same parameters and a name.
+A template is included to make it easier to create systems.
+In the <code class="docutils literal notranslate"><span class="pre">Application</span></code> project’s <code class="docutils literal notranslate"><span class="pre">include</span></code> folder you will find <code class="docutils literal notranslate"><span class="pre">example_system.h</span></code>.
+Copy this code to create your own systems.</p>
+</div>
 <div class="section" id="registering-a-system">
 <h2>Registering a system<a class="headerlink" href="#registering-a-system" title="Permalink to this headline">¶</a></h2>
 <p>Systems needs to be registered just like components.
