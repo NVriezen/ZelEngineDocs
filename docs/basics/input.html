@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Components &mdash; Zel Game Engine 0.1.1 documentation</title>
+  <title>Input &mdash; Zel Game Engine 0.1.1 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Systems" href="systems.html" />
-    <link rel="prev" title="Entities" href="entities.html" /> 
+    <link rel="next" title="Examples" href="../examples/index.html" />
+    <link rel="prev" title="Rendering" href="rendering.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -151,10 +151,10 @@
 <li class="toctree-l2"><a class="reference internal" href="entities.html#creating-an-entity">Creating an entity</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Components</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#registering-components">Registering components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#adding-components">Adding components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#checking-getting-components">Checking &amp; getting components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components.html#registering-components">Registering components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#adding-components">Adding components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#checking-getting-components">Checking &amp; getting components</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="systems.html">Systems</a><ul>
@@ -164,12 +164,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rendering.html">Rendering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="input.html">Input</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="input.html#available-keys">Available Keys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input.html#different-key-presses">Different Key Presses</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="input.html#key-press">Key Press</a></li>
-<li class="toctree-l3"><a class="reference internal" href="input.html#key-hold">Key Hold</a></li>
-<li class="toctree-l3"><a class="reference internal" href="input.html#key-release">Key Release</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Input</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#available-keys">Available Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#different-key-presses">Different Key Presses</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-press">Key Press</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-hold">Key Hold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-release">Key Release</a></li>
 </ul>
 </li>
 </ul>
@@ -239,13 +239,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Components</li>
+      <li>Input</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/basics/components.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/basics/input.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -258,53 +258,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="components">
-<span id="id1"></span><h1>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h1>
-<p>Components are represented as Plain Old Data or POD structs.
-That means components do not contain any logic, they only contain data.
-Components are manipulated through <a class="reference internal" href="systems.html#systems"><span class="std std-ref">Systems</span></a>.</p>
-<p>Some components are built in to the engine.
-To see which components are built in or predefined, please see <a class="reference internal" href="../api/file_zel_component_builtin_h.html#zel-component-builtin-h"><span class="std std-ref">zel_component_builtin</span></a>.</p>
-<div class="section" id="registering-components">
-<h2>Registering components<a class="headerlink" href="#registering-components" title="Permalink to this headline">¶</a></h2>
-<p>To be able to use components in a level, you first have to register them.
-This way you keep the memory footprint to a minimum.
-This registering of components can be done at any moment.
-But it is recommended to do this while initializing a level.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">zel_level_register_component</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">example_level</span><span class="p">);</span>
+  <div class="section" id="input">
+<span id="id1"></span><h1>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h1>
+<p>Currently the engine only has support for keyboard input.
+You can not use the mouse in any way yet as well as joysticks.</p>
+<div class="section" id="available-keys">
+<h2>Available Keys<a class="headerlink" href="#available-keys" title="Permalink to this headline">¶</a></h2>
+<p>The keyboard keys that can be used are defined in the <code class="docutils literal notranslate"><span class="pre">zel_PLATFORM_input_constants.h</span></code> file.
+Where <code class="docutils literal notranslate"><span class="pre">PLATFORM</span></code> is the platform you are building for.
+Currently this can only be <code class="docutils literal notranslate"><span class="pre">windows</span></code>.
+These files can be found in <code class="docutils literal notranslate"><span class="pre">ZelGameEngine/platforms/PLATFORM/include</span></code>.</p>
+</div>
+<div class="section" id="different-key-presses">
+<h2>Different Key Presses<a class="headerlink" href="#different-key-presses" title="Permalink to this headline">¶</a></h2>
+<p>When pressing and releasing a key, there are three phases.
+The first frame the key is pressed can be detected with <code class="docutils literal notranslate"><span class="pre">zel_input_get_key_press</span></code>.
+Then all the following frames the key is still pressed can be detected with <code class="docutils literal notranslate"><span class="pre">zel_input_get_key_hold</span></code>.
+When releasing the key, the first frame it is released can be detected with <code class="docutils literal notranslate"><span class="pre">zel_input_get_key_release</span></code>.</p>
+<div class="section" id="key-press">
+<h3>Key Press<a class="headerlink" href="#key-press" title="Permalink to this headline">¶</a></h3>
+<p>Key press only happens when during the previous frame the key was not pressed and the current frame it is.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">state</span> <span class="o">=</span> <span class="n">zel_input_get_key_press</span><span class="p">(</span><span class="n">ZEL_KEY_A</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">zel_print</span><span class="p">(</span><span class="s">&quot;Key A is pressed&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>Some components may need to free memory when getting destroyed. For these components you can call a different function to register them.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">zel_level_register_component_with_destroy</span><span class="o">&lt;</span><span class="n">zel_material_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">example_level</span><span class="p">,</span> <span class="n">zel_material_destroy</span><span class="p">);</span>
+</div>
+<div class="section" id="key-hold">
+<h3>Key Hold<a class="headerlink" href="#key-hold" title="Permalink to this headline">¶</a></h3>
+<p>When the key was held during the previous and current frame the key is marked as being held.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">state</span> <span class="o">=</span> <span class="n">zel_input_get_key_hold</span><span class="p">(</span><span class="n">ZEL_KEY_A</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">zel_print</span><span class="p">(</span><span class="s">&quot;Key A is being held down&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>As you can see this function takes two parameters. The second parameter is the callback which handles the cleanup of that component. You can see it as the destructor of that component type.</p>
 </div>
-<div class="section" id="adding-components">
-<h2>Adding components<a class="headerlink" href="#adding-components" title="Permalink to this headline">¶</a></h2>
-<p>Once you registered the component type you want to use, you can add this component to entities.
-First create the component itself, for example a <code class="docutils literal notranslate"><span class="pre">transform</span></code> component.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">zel_transform_t</span> <span class="n">transform</span><span class="p">{</span> <span class="p">{</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span> <span class="p">},{</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span> <span class="p">},{</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span> <span class="p">}</span> <span class="p">};</span>
+<div class="section" id="key-release">
+<h3>Key Release<a class="headerlink" href="#key-release" title="Permalink to this headline">¶</a></h3>
+<p>If a key is released and the previous frame it was still pressed then Key Release occurs.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">state</span> <span class="o">=</span> <span class="n">zel_input_get_key_release</span><span class="p">(</span><span class="n">ZEL_KEY_A</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">zel_print</span><span class="p">(</span><span class="s">&quot;Key A is released&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>Then you can add this component to an entity.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">zel_level_add_component</span><span class="p">(</span><span class="n">example_level</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">transform</span><span class="p">);</span>
-</pre></div>
 </div>
-<p>See the API Reference section for <a class="reference internal" href="../api/file_zel_level_h.html#zel-level-h"><span class="std std-ref">zel_level.h</span></a> for more information.</p>
-</div>
-<div class="section" id="checking-getting-components">
-<h2>Checking &amp; getting components<a class="headerlink" href="#checking-getting-components" title="Permalink to this headline">¶</a></h2>
-<p>Of course sometimes you want to know if a component is on a certain entity.
-This is also used in the systems to get a list with entities which contain a combination of certain components.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">zel_level_has_components</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="p">,</span> <span class="n">zel_material_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">example_level</span><span class="p">,</span> <span class="n">entity</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>If you know an entity has the component you need, you can use <code class="docutils literal notranslate"><span class="pre">zel_level_get_component</span></code> to get a pointer back to that component.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">zel_transform_t</span><span class="o">*</span> <span class="n">transform_component_ptr</span> <span class="o">=</span> <span class="n">zel_level_get_component</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">example_level</span><span class="p">,</span> <span class="n">entity</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>The pointer should not be freed. It’s valid until the component or the entity gets destroyed.</p>
 </div>
 </div>
 
@@ -314,8 +317,8 @@ This is also used in the systems to get a list with entities which contain a com
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="systems.html" class="btn btn-neutral float-right" title="Systems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="entities.html" class="btn btn-neutral float-left" title="Entities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../examples/index.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="rendering.html" class="btn btn-neutral float-left" title="Rendering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

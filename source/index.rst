@@ -37,6 +37,7 @@ Here you will find information regarding what features are available together wi
    basics/components
    basics/systems
    basics/rendering
+   basics/input
    
 .. toctree::
    :maxdepth: 1
