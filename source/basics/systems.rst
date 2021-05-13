@@ -58,5 +58,16 @@ By using a for loop like so:
 	}
 
 This is the recommended way to use the ``zel_entities_list``.
+It's also not restricted to only one type. You can get a list of entities which have a combination of multiple components.
+
+.. code-block:: cpp
+
+	for (zel_entity_id entity : zel_entities_list<zel_transform_t, zel_material_t, zel_mesh_t>(level))
+	{
+		//use the transform component here
+	}
+
+
+	
 
 

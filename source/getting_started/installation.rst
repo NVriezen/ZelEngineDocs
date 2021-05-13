@@ -63,9 +63,11 @@ One named ``Application`` and another named ``ZelGameEngine``.
 
 Directories Setup
 ^^^^^^^^^^^^^^^^^
-Rickt-click on the ``ZelGameEngine`` project and select ``Properties``.
-This should open a window where you'll find ``VC++ Directories`` in the left column.
-Select it and here we need to set up GLFW for the project.
+Right-click on the ``ZelGameEngine`` project and select ``Properties``.
+This should open a window where you can change the configuration properties.
+In the top left set the configuration to ``All Configurations``.
+After that select ``VC++ Directories`` in the left column.
+Here we need to set up GLFW for the project.
 
 Include
 """""""
@@ -75,20 +77,16 @@ Change this path to where you stored the include folder of GLFW for the selected
 
 Library
 """""""
-Do the same for the ``Library Directories`` row as you did for the ``Include Directories``.
-Change the path to point to the correct ``lib-`` folder based on your Visual Studio version.
+Do the same for the ``Library Directories`` row as you did for the ``Include Directories`` one.
+Change the path to point towards the correct ``lib-`` folder based on your Visual Studio version.
 
 Great! GLFW should be setup now.
 
 Configurations
 ^^^^^^^^^^^^^^
 The engine works with two configurations: ``Debug`` and ``Release``.
-Some features will be disabled in the Release configuration in the future.
-Right now you can change some settings in ``zel_engine_settings.cpp`` in the engine's include folder.
-
-.. note::
-	
-	The output console where all the messages from ``zel_print`` will appear is only available in the ``Debug`` configuration.
+Some features may be disabled in the Release configuration.
+The output console, where all messages from ``zel_print`` will appear, is one of them.
 
 Testing the setup
 ^^^^^^^^^^^^^^^^^
@@ -100,7 +98,7 @@ A somewhat dark (blue) window should appear with a command prompt window.
 In the command prompt window you can see the engine's version as well as "Hello World".
 
 .. note:: 
-    If you do get errors or any other issue, please check again if you followed the instructions correctly. If the problems persist, please open an issue on the documentation's `Github issues page <https://github.com/NVriezen/ZelEngineDocs/issues>`_ describing the problem you have.
+    If you do get errors or any other issue, please **check again** if you followed the instructions correctly. If the problems persist, please open an issue on the documentation's `Github issues page <https://github.com/NVriezen/ZelEngineDocs/issues>`_ describing the problem you have.
 
 What's Next?
 ------------

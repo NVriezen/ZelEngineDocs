@@ -24,8 +24,8 @@ Here you will find information regarding what features are available together wi
    :maxdepth: 2
    :caption: Getting Started:
 
-   getting_started/quickstart
    getting_started/installation
+   getting_started/quickstart
 
 .. toctree::
    :maxdepth: 2

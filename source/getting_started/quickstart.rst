@@ -29,6 +29,10 @@ They process components and may change their data.
 It takes ``delta_time`` as a parameter.
 This is the passed time between the previous and current frame.
 
+.. warning::
+
+	``zel_logic`` may not be registered as a system through the ``zel_level_register_system`` function.
+
 Render
 ------
 Of course ``zel_render`` is the place where everything gets rendered.
