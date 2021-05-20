@@ -26,6 +26,7 @@ Here you will find information regarding what features are available together wi
 
    getting_started/installation
    getting_started/quickstart
+   getting_started/migrationguide
 
 .. toctree::
    :maxdepth: 2
