@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Installation &mdash; Zel Game Engine 0.1.0 documentation</title>
+  <title>Installation &mdash; Zel Game Engine 0.2.0 documentation</title>
   
 
   
@@ -107,7 +107,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#downloading-the-repository">Downloading The Repository</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#downloading-glfw">Downloading GLFW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setting-up-visual-studio">Setting Up Visual Studio</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#directories-setup">Directories Setup</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#include">Include</a></li>
@@ -132,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#what-s-next">What’s Next?</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="migrationguide.html">Migration Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Basics</span></p>
 <ul>
@@ -272,7 +272,7 @@ This can be done by cloning the Github repository or just downloading it directl
 Luckily there are plenty of resources out there including <a class="reference external" href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">Github’s own documentation</a>.</p>
 <p>The engine’s repository can be found <a class="reference external" href="https://github.com/NVriezen/ZelGameEngine">here</a>.
 It has most of the files needed for the engine.</p>
-<p>When you have cloned the repository, you can skip to <a class="reference internal" href="#setting-up-glfw"><span class="std std-ref">Downloading GLFW</span></a>.</p>
+<p>When you have cloned the repository, you can skip to <a class="reference internal" href="#setting-up-vs"><span class="std std-ref">Setting Up Visual Studio</span></a>.</p>
 </div>
 <div class="section" id="downloading-the-repository">
 <span id="downloading-rep"></span><h3>Downloading The Repository<a class="headerlink" href="#downloading-the-repository" title="Permalink to this headline">¶</a></h3>
@@ -282,27 +282,21 @@ Then click on the green <strong>code</strong> button and click on <strong>Downlo
 This way you’ll download the latest master version of the engine.</p>
 </div>
 </div>
-<div class="section" id="downloading-glfw">
-<span id="setting-up-glfw"></span><h2>Downloading GLFW<a class="headerlink" href="#downloading-glfw" title="Permalink to this headline">¶</a></h2>
-<p>The engine uses GLFW to draw a window and manage inputs for us.
-We need to download GLFW and set it up in Visual Studio correctly.</p>
-<p>Download the correct pre-compiled binaries for your machine <a class="reference external" href="https://www.glfw.org/download.html">in GLFW’s download section</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can build the binaries yourself if you want. Make sure you build GLFW 3.3.2 or higher.</p>
-</div>
-<p>Extract the folder in the zip file somewhere on your machine.
-Preferably in a location where you can use it for other projects as well.</p>
-<p>Now we have all files we need to be able to build the engine.
-The only thing left is setting it up correctly in Visual Studio.</p>
-</div>
 <div class="section" id="setting-up-visual-studio">
 <span id="setting-up-vs"></span><h2>Setting Up Visual Studio<a class="headerlink" href="#setting-up-visual-studio" title="Permalink to this headline">¶</a></h2>
 <p>Right now the engine has only been used with Visual Studio 2015.
 Other build environments won’t be supported anytime soon.
 Any Visual Studio version from VS2015 onwards should be good though.</p>
 <p>Open the solution through <code class="docutils literal notranslate"><span class="pre">ZelGameEngine.sln</span></code>
-After Visual Studio loading the solution, you’ll see two projects.
+You may see an upgrade prompt when opening the solution.
+Make sure to click “OK”, otherwise the engine probably will not run.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are already past this point, you need to upgrade the solution manually.
+This can be done by going into the Properties of each project.
+Then set the Platform Toolset and SDK to the installed versions on your system.</p>
+</div>
+<p>After Visual Studio has loaded the solution, you’ll see two projects.
 One named <code class="docutils literal notranslate"><span class="pre">Application</span></code> and another named <code class="docutils literal notranslate"><span class="pre">ZelGameEngine</span></code>.</p>
 <div class="section" id="directories-setup">
 <h3>Directories Setup<a class="headerlink" href="#directories-setup" title="Permalink to this headline">¶</a></h3>

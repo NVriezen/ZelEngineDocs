@@ -21,7 +21,7 @@ Luckily there are plenty of resources out there including `Github's own document
 The engine's repository can be found `here <https://github.com/NVriezen/ZelGameEngine>`_.
 It has most of the files needed for the engine.
 
-When you have cloned the repository, you can skip to :ref:`setting_up_glfw`.
+When you have cloned the repository, you can skip to :ref:`setting_up_vs`.
 
 .. _downloading_rep:
 
@@ -32,23 +32,6 @@ Go to `the engine's repository <https://github.com/NVriezen/ZelGameEngine>`_.
 Then click on the green **code** button and click on **Download Zip** in the dropdown menu.
 This way you'll download the latest master version of the engine.
 
-.. _setting_up_glfw:
-
-Downloading GLFW
-----------------
-The engine uses GLFW to draw a window and manage inputs for us.
-We need to download GLFW and set it up in Visual Studio correctly.
-
-Download the correct pre-compiled binaries for your machine `in GLFW's download section <https://www.glfw.org/download.html>`_.
-
-.. note:: You can build the binaries yourself if you want. Make sure you build GLFW 3.3.2 or higher.
-
-Extract the folder in the zip file somewhere on your machine.
-Preferably in a location where you can use it for other projects as well.
-
-Now we have all files we need to be able to build the engine.
-The only thing left is setting it up correctly in Visual Studio.
-
 .. _setting_up_vs:
 
 Setting Up Visual Studio
@@ -58,7 +41,16 @@ Other build environments won't be supported anytime soon.
 Any Visual Studio version from VS2015 onwards should be good though.
 
 Open the solution through ``ZelGameEngine.sln``
-After Visual Studio loading the solution, you'll see two projects.
+You may see an upgrade prompt when opening the solution.
+Make sure to click "OK", otherwise the engine probably will not run.
+
+.. note::
+
+	If you are already past this point, you need to upgrade the solution manually.
+	This can be done by going into the Properties of each project.
+	Then set the Platform Toolset and SDK to the installed versions on your system.
+
+After Visual Studio has loaded the solution, you'll see two projects.
 One named ``Application`` and another named ``ZelGameEngine``.
 
 Directories Setup

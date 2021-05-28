@@ -13,10 +13,19 @@ set BUILDDIR=_build
 if "%1" == "" goto help
 
 if "%1" == "github" (
+    %SPHINXBUILD% -M clean %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
+    mkdir "%BUILDDIR%\doxygen\zel"
     %SPHINXBUILD% -M html %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
     robocopy %BUILDDIR%/html docs /E > nul
     echo.Build is in %BUILDDIR%/html
     echo.Generated files copied to ../docs
+    goto end
+)
+
+if "%1" == "fresh" (
+    %SPHINXBUILD% -M clean %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
+    mkdir "%BUILDDIR%/doxygen/zel"
+    %SPHINXBUILD% -M html %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
     goto end
 )
 
