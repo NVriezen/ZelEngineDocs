@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>zel_resources.h &mdash; Zel Game Engine 0.2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="zel_types.h" href="file_zel_types_h.html" />
+    <link rel="prev" title="zel_render_api.h" href="file_zel_render_api_h.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #081335" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/docs_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">About:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/philosofy.html">Philosofy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/platforms.html">Platforms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about/platforms.html#supported-developement-platforms">Supported Developement Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about/platforms.html#supported-build-platforms">Supported Build Platforms</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/installation.html#downloading-the-engine">Downloading The Engine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/installation.html#cloning-the-repository">Cloning The Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/installation.html#downloading-the-repository">Downloading The Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/installation.html#setting-up-visual-studio">Setting Up Visual Studio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/installation.html#directories-setup">Directories Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/installation.html#include">Include</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/installation.html#library">Library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/installation.html#configurations">Configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/installation.html#testing-the-setup">Testing the setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/installation.html#what-s-next">What’s Next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#user-code">User Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#logic">Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#render">Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#termination">Termination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#including">Including</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quickstart.html#what-s-next">What’s Next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/migrationguide.html">Migration Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basics/levels.html">Levels</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics/levels.html#creating-a-level">Creating a level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/levels.html#registering-components">Registering components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/levels.html#registering-systems">Registering Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/levels.html#creating-entities">Creating entities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/entities.html">Entities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics/entities.html#entity-ids">Entity IDs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../basics/entities.html#index">Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../basics/entities.html#generational-index">Generational Index</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/entities.html#creating-an-entity">Creating an entity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/components.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics/components.html#registering-components">Registering components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/components.html#adding-components">Adding components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/components.html#checking-getting-components">Checking &amp; getting components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/systems.html">Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#template">Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#registering-a-system">Registering a system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#entities-list-iterator">Entities list iterator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/rendering.html">Rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/input.html">Input</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basics/input.html#available-keys">Available Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/input.html#different-key-presses">Different Key Presses</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../basics/input.html#key-press">Key Press</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../basics/input.html#key-hold">Key Hold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../basics/input.html#key-release">Key Release</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/rendering/rendering_sprite.html">Rendering a Sprite</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="typedef_zel_system_t.html">zel_system_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_zel_vector2.html">vector2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_zel_vector3.html">vector3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typedef_zel_vector4.html">vector4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct_zel_camera_t.html">zel_camera_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct_zel_entities_list.html">zel_entities_list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct_zel_generational_ptr.html">zel_generational_ptr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct_zel_level_t.html">zel_level_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct_zel_material_t.html">zel_material_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct_zel_mesh_t.html">zel_mesh_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct_zel_texture_t.html">zel_texture_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct_zel_transform_t.html">zel_transform_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_ZelComponent.html">ZelComponent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_ZelComponentBase.html">ZelComponentBase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_zel_application_h.html">zel_application.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_zel_component_builtin_h.html">zel_component_builtin.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_zel_ecs_h.html">zel_ecs.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_zel_level_h.html">zel_level.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_zel_render_api_h.html">zel_render_api.h</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">zel_resources.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_zel_types_h.html">zel_types.h</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Zel Game Engine</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">API Reference</a> &raquo;</li>
+        
+      <li>zel_resources.h</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/api/file_zel_resources_h.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="zel-resources-h">
+<span id="id1"></span><h1>zel_resources.h<a class="headerlink" href="#zel-resources-h" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="cpp type">
+<dt id="_CPPv415zel_resource_id">
+<span id="_CPPv315zel_resource_id"></span><span id="_CPPv215zel_resource_id"></span><span id="zel_resource_id"></span><span class="target" id="zel__resources_8h_1aadbc384db8c13cb2f2503ba06c0f899e"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">uint32_t</span> <code class="sig-name descname"><span class="pre">zel_resource_id</span></code><a class="headerlink" href="#_CPPv415zel_resource_id" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv419resource_destructor">
+<span id="_CPPv319resource_destructor"></span><span id="_CPPv219resource_destructor"></span><span id="resource_destructor"></span><span class="target" id="zel__resources_8h_1a80ea3e2af8d234e3c68162ca98000718"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">void</span> <span class="pre">(</span><span class="pre">*</span><code class="sig-name descname"><span class="pre">resource_destructor</span></code><span class="pre">)</span><span class="sig-paren">(</span><span class="pre">void</span><span class="pre">*</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419resource_destructor" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv418zel_resources_initv">
+<span id="_CPPv318zel_resources_initv"></span><span id="_CPPv218zel_resources_initv"></span><span id="zel_resources_init"></span><span class="target" id="zel__resources_8h_1a080d0fd4bdc733046d53882ca737128f"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">zel_resources_init</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418zel_resources_initv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv417zel_resources_addPKcPv19resource_destructor">
+<span id="_CPPv317zel_resources_addPKcPv19resource_destructor"></span><span id="_CPPv217zel_resources_addPKcPv19resource_destructor"></span><span id="zel_resources_add__cCP.voidP.resource_destructor"></span><span class="target" id="zel__resources_8h_1a9caaa60bb6fd37315e49e01cb795ebaa"></span><a class="reference internal" href="#_CPPv415zel_resource_id" title="zel_resource_id"><span class="pre">zel_resource_id</span></a> <code class="sig-name descname"><span class="pre">zel_resources_add</span></code><span class="sig-paren">(</span><em class="property"><span class="pre">const</span></em> <span class="pre">char</span> <span class="pre">*</span><em><span class="pre">path</span></em>, <span class="pre">void</span> <span class="pre">*</span><em><span class="pre">pointer_to_resource</span></em>, <a class="reference internal" href="#_CPPv419resource_destructor" title="resource_destructor"><span class="pre">resource_destructor</span></a> <em><span class="pre">destructor_function</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417zel_resources_addPKcPv19resource_destructor" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv424zel_resources_get_loadedPKc">
+<span id="_CPPv324zel_resources_get_loadedPKc"></span><span id="_CPPv224zel_resources_get_loadedPKc"></span><span id="zel_resources_get_loaded__cCP"></span><span class="target" id="zel__resources_8h_1a0f8ec1bed464e139f4f0cb94edeccdc6"></span><a class="reference internal" href="#_CPPv415zel_resource_id" title="zel_resource_id"><span class="pre">zel_resource_id</span></a> <code class="sig-name descname"><span class="pre">zel_resources_get_loaded</span></code><span class="sig-paren">(</span><em class="property"><span class="pre">const</span></em> <span class="pre">char</span> <span class="pre">*</span><em><span class="pre">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424zel_resources_get_loadedPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv425zel_resources_get_from_id15zel_resource_id">
+<span id="_CPPv325zel_resources_get_from_id15zel_resource_id"></span><span id="_CPPv225zel_resources_get_from_id15zel_resource_id"></span><span id="zel_resources_get_from_id__zel_resource_id"></span><span class="target" id="zel__resources_8h_1a22a7deabe62625488cc9c4a2148e6d1e"></span><span class="pre">void</span> <span class="pre">*</span><code class="sig-name descname"><span class="pre">zel_resources_get_from_id</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv415zel_resource_id" title="zel_resource_id"><span class="pre">zel_resource_id</span></a> <em><span class="pre">resource_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425zel_resources_get_from_id15zel_resource_id" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv420zel_resources_unload15zel_resource_id">
+<span id="_CPPv320zel_resources_unload15zel_resource_id"></span><span id="_CPPv220zel_resources_unload15zel_resource_id"></span><span id="zel_resources_unload__zel_resource_id"></span><span class="target" id="zel__resources_8h_1a102cd2e9870ddb3ae1187bc38ff9d483"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">zel_resources_unload</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv415zel_resource_id" title="zel_resource_id"><span class="pre">zel_resource_id</span></a> <em><span class="pre">resource_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420zel_resources_unload15zel_resource_id" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv427zel_resources_add_reference15zel_resource_id">
+<span id="_CPPv327zel_resources_add_reference15zel_resource_id"></span><span id="_CPPv227zel_resources_add_reference15zel_resource_id"></span><span id="zel_resources_add_reference__zel_resource_id"></span><span class="target" id="zel__resources_8h_1ab13b82410424230a76dbda2181428bfa"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">zel_resources_add_reference</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv415zel_resource_id" title="zel_resource_id"><span class="pre">zel_resource_id</span></a> <em><span class="pre">resource_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427zel_resources_add_reference15zel_resource_id" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="cpp struct">
+<dt id="_CPPv414zel_resource_t">
+<span id="_CPPv314zel_resource_t"></span><span id="_CPPv214zel_resource_t"></span><span id="zel_resource_t"></span><span class="target" id="structzel__resource__t"></span><em class="property"><span class="pre">struct</span> </em><code class="sig-name descname"><span class="pre">zel_resource_t</span></code><a class="headerlink" href="#_CPPv414zel_resource_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;zel_resources.h&gt;</em><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt id="_CPPv4N14zel_resource_t7pointerE">
+<span id="_CPPv3N14zel_resource_t7pointerE"></span><span id="_CPPv2N14zel_resource_t7pointerE"></span><span id="zel_resource_t::pointer__voidP"></span><span class="target" id="structzel__resource__t_1a12f4d19860747de10090a5c221517bef"></span><span class="pre">void</span> <span class="pre">*</span><code class="sig-name descname"><span class="pre">pointer</span></code><a class="headerlink" href="#_CPPv4N14zel_resource_t7pointerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N14zel_resource_t7counterE">
+<span id="_CPPv3N14zel_resource_t7counterE"></span><span id="_CPPv2N14zel_resource_t7counterE"></span><span id="zel_resource_t::counter__uint32_t"></span><span class="target" id="structzel__resource__t_1a615282ed8d205b7d6f3c6c6e4616b257"></span><span class="pre">uint32_t</span> <code class="sig-name descname"><span class="pre">counter</span></code><a class="headerlink" href="#_CPPv4N14zel_resource_t7counterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N14zel_resource_t10destructorE">
+<span id="_CPPv3N14zel_resource_t10destructorE"></span><span id="_CPPv2N14zel_resource_t10destructorE"></span><span id="zel_resource_t::destructor__resource_destructor"></span><span class="target" id="structzel__resource__t_1ae9033ac4993de2140a013cbf87d78b80"></span><a class="reference internal" href="#_CPPv419resource_destructor" title="resource_destructor"><span class="pre">resource_destructor</span></a> <code class="sig-name descname"><span class="pre">destructor</span></code><a class="headerlink" href="#_CPPv4N14zel_resource_t10destructorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N14zel_resource_t4pathE">
+<span id="_CPPv3N14zel_resource_t4pathE"></span><span id="_CPPv2N14zel_resource_t4pathE"></span><span id="zel_resource_t::path__cCP"></span><span class="target" id="structzel__resource__t_1aee45768b5be23e260fbe998f7d97831a"></span><em class="property"><span class="pre">const</span></em> <span class="pre">char</span> <span class="pre">*</span><code class="sig-name descname"><span class="pre">path</span></code><a class="headerlink" href="#_CPPv4N14zel_resource_t4pathE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="file_zel_types_h.html" class="btn btn-neutral float-right" title="zel_types.h" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="file_zel_render_api_h.html" class="btn btn-neutral float-left" title="zel_render_api.h" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NVriezen.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

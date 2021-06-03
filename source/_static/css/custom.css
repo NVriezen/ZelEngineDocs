@@ -89,6 +89,10 @@
     --btn-neutral-background-color: #f3f6f6;
     --btn-neutral-hover-background-color: #e5ebeb;
     --footer-color: #808080;
+     
+    --api-indent-background-color: #f0f0f0;
+    --api-indent-color: #404040;
+    --api-indent-border-color: #ccc;
 }
 
 /* Dark theme colors */
@@ -178,6 +182,11 @@
         --btn-neutral-background-color: #404040;
         --btn-neutral-hover-background-color: #505050;
         --footer-color: #aaa;
+        
+        --api-indent-background-color: #4e2b4e;
+        --api-indent-color: #bfeeff;        
+        --api-indent-border-color: #421f46;
+
     }
 }
 
@@ -1050,4 +1059,12 @@ kbd, .kbd {
 }
 .wy-menu.wy-menu-vertical::-webkit-scrollbar-thumb:active {
     background-color: var(--navbar-scrollbar-active-color);
+}
+
+/* API Reference styling */
+html.writer-html4 .rst-content dl:not(.docutils) dl:not(.field-list)>dt, html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) dl:not(.field-list)>dt
+{
+    background-color: var(--api-indent-background-color);
+    color: var(--api-indent-color);
+    border-left-color: var(--api-indent-border-color);
 }

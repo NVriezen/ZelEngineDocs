@@ -14,6 +14,10 @@ There are two projects, the ``ZelGameEngine`` which is the engine itself and ``A
 The engine will run certain functions from ``zel_entry.cpp`` included in the ``Application`` project.
 This is where you can plug your own code in.
 
+.. tip::
+
+	In the Solution Explorer in Visual Studio you can click on "Show All Files" to see the folders with the files. Do this for all the projects in the solution. It keeps things more organized.
+
 Initialization
 --------------
 The ``zel_initialization`` function is the place to create your level.
