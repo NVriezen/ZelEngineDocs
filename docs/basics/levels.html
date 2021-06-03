@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
@@ -14,6 +15,7 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
 
   
   
@@ -304,6 +306,28 @@ So to be able to use the transform component in the level, you can do the follow
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">zel_level_register_component_with_destroy</span><span class="o">&lt;</span><span class="n">zel_material_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">example_level</span><span class="p">,</span> <span class="n">zel_material_destroy</span><span class="p">);</span>
 </pre></div>
 </div>
+<div class="toggle admonition">
+<p class="admonition-title">In Depth</p>
+<p>The reason that you need to register your components lies in the way the engine stores them. Components get stored in an instance of the templated class <code class="docutils literal notranslate"><span class="pre">ZelComponent</span></code> that inherits from <code class="docutils literal notranslate"><span class="pre">ZelComponentBase</span></code>.</p>
+<p>As you can see in <code class="docutils literal notranslate"><span class="pre">zel_level.h</span></code> when you call <code class="docutils literal notranslate"><span class="pre">zel_level_register_component</span></code> a new instance of the class is created on the heap especially for that type of component.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">zel_level_register_component</span><span class="p">(</span><span class="n">zel_level_t</span><span class="o">*</span> <span class="n">level</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type_name</span> <span class="o">=</span> <span class="k">typeid</span><span class="p">(</span><span class="n">T</span><span class="p">).</span><span class="n">name</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">level</span><span class="o">-&gt;</span><span class="n">components</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">type_name</span><span class="p">)</span> <span class="o">!=</span> <span class="n">level</span><span class="o">-&gt;</span><span class="n">components</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
+        <span class="p">{</span>
+                <span class="c1">//The component type is already registered</span>
+                <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">ZelComponent</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">new_component_type</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZelComponent</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="n">ZelComponentBase</span><span class="o">*</span> <span class="n">base_component_type</span> <span class="o">=</span> <span class="n">new_component_type</span><span class="p">;</span>
+        <span class="n">level</span><span class="o">-&gt;</span><span class="n">components</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span> <span class="n">type_name</span><span class="p">,</span> <span class="n">base_component_type</span> <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For more information about which components are built into the engine, please take a look at the <a class="reference internal" href="components.html#components"><span class="std std-ref">Components</span></a> section.</p>
@@ -376,7 +400,18 @@ You can create an entity with <code class="docutils literal notranslate"><span c
   
   
     
-   
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .admonition-title").show();
+        $(".toggle .admonition-title").click(function() {
+            $(this).parent().children().not(".admonition-title").toggle(200);
+            $(this).parent().children(".admonition-title").toggleClass("open");
+        })
+    });
+</script>
+
 
 </body>
 </html>

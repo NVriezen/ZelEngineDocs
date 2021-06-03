@@ -37,6 +37,31 @@ Some components need to clean up some stuff. For example; materials may need to 
 
 	zel_level_register_component_with_destroy<zel_material_t>(example_level, zel_material_destroy);
 
+.. admonition:: In Depth
+	:class: toggle
+
+	The reason that you need to register your components lies in the way the engine stores them. Components get stored in an instance of the templated class ``ZelComponent`` that inherits from ``ZelComponentBase``.
+	
+	As you can see in ``zel_level.h`` when you call ``zel_level_register_component`` a new instance of the class is created on the heap especially for that type of component.
+	
+	.. code-block:: cpp
+
+		template <typename T>
+		void zel_level_register_component(zel_level_t* level)
+		{
+			std::string type_name = typeid(T).name();
+
+			if (level->components.find(type_name) != level->components.end())
+			{
+				//The component type is already registered
+				return;
+			}
+
+			ZelComponent<T>* new_component_type = new ZelComponent<T>();
+			ZelComponentBase* base_component_type = new_component_type;
+			level->components.insert({ type_name, base_component_type });
+		}
+
 .. note::
 
 	For more information about which components are built into the engine, please take a look at the :ref:`Components<components>` section.
