@@ -3,4 +3,4 @@
 vector2
 ===============
 
-.. doxygentypedef:: vector2
+.. doxygenstruct:: vector2
