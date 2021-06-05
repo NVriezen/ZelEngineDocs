@@ -327,6 +327,12 @@ So to be able to use the transform component in the level, you can do the follow
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>If you forget to register a component type, then it can’t be stored and the engine will crash.</p>
+<p>But why store the components like this?
+The goal is to reduce the amount of times the CPU has to load data from RAM, in some cases called a cache miss.
+We can do this by packing data closely together and only the data we access often together.
+So storing all the same type of data in a big array inside the <code class="docutils literal notranslate"><span class="pre">ZelComponent</span></code> class can help reduce those cache misses.</p>
+<p>For more insight in how this all works you can look at <a class="reference external" href="https://github.com/NVriezen/ZelGameEngine/blob/master/ZelGameEngine/include/zel_level.h">zel_level.h</a>, <a class="reference external" href="https://github.com/NVriezen/ZelGameEngine/blob/master/ZelGameEngine/include/zel_component_base.h">zel_component_base.h</a> and <a class="reference external" href="https://github.com/NVriezen/ZelGameEngine/blob/master/ZelGameEngine/include/zel_component_class.h">zel_component_class.h</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

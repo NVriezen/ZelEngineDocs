@@ -62,6 +62,21 @@ Some components need to clean up some stuff. For example; materials may need to 
 			level->components.insert({ type_name, base_component_type });
 		}
 
+	If you forget to register a component type, then it can't be stored and the engine will crash.
+
+	But why store the components like this?
+	The goal is to reduce the amount of times the CPU has to load data from RAM, in some cases called a cache miss.
+	We can do this by packing data closely together and only the data we access often together.
+	So storing all the same type of data in a big array inside the ``ZelComponent`` class can help reduce those cache misses.
+
+	For more insight in how this all works you can look at `zel_level.h`_, `zel_component_base.h`_ and `zel_component_class.h`_.
+
+.. _zel_level.h: https://github.com/NVriezen/ZelGameEngine/blob/master/ZelGameEngine/include/zel_level.h
+
+.. _zel_component_base.h: https://github.com/NVriezen/ZelGameEngine/blob/master/ZelGameEngine/include/zel_component_base.h
+
+.. _zel_component_class.h: https://github.com/NVriezen/ZelGameEngine/blob/master/ZelGameEngine/include/zel_component_class.h
+
 .. note::
 
 	For more information about which components are built into the engine, please take a look at the :ref:`Components<components>` section.

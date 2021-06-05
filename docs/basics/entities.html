@@ -299,6 +299,45 @@ This is a special value which gets increased everytime an entity spot changes.
 So when an entity gets created or destroyed in that spot.</p>
 <p>When trying to get a component through an entity id, the generational index is compared.
 If the generational index in that entity spot is different than the generational index in the entity id, it indicates the entity does not actually have that component or has been destroyed.</p>
+<div class="toggle admonition">
+<p class="admonition-title">In Depth</p>
+<p>Components get stored in a class specific for that component type.
+Systems are just functions which get tracked by the level.
+Therefore Entities only have to be a unique number for them to work.
+With that unique ID we can identify groups of components.</p>
+<p>We use the generational index for some security and robustness.
+There are macros in the <code class="docutils literal notranslate"><span class="pre">zel_entities.h</span></code> file to help make an ID from an index and a generational index.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ZEL_CAPACITY_GENERATION 0xFF</span>
+<span class="cp">#define ZEL_CAPACITY_ENTITIES 0xFFFFFF</span>
+<span class="cp">#define ZEL_MAX_ENTITIES 0xFFFF</span>
+<span class="cp">#define ZEL_GENERATION_BIT 24</span>
+
+<span class="cp">#define ZEL_GET_GENERATION(id) ((id &amp; 0xFF000000) &gt;&gt; ZEL_GENERATION_BIT)</span>
+<span class="cp">#define ZEL_GET_INDEX(id) (id &amp; ZEL_CAPACITY_ENTITIES)</span>
+<span class="cp">#define ZEL_CREATE_ID(generation, index) (generation &lt;&lt; ZEL_GENERATION_BIT) | index</span>
+</pre></div>
+</div>
+<p>Entities are simply stored inside <code class="docutils literal notranslate"><span class="pre">zel_level_t</span></code>.
+The position inside the <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>, the index, decides part of their ID. The index in that vector is also the index used in the Component class for the mapping of components.
+So the data in <code class="docutils literal notranslate"><span class="pre">entity_to_component</span></code> points to the component that is attached to a particular entity.
+If the entity has index 2 in the level struct, then its components can be found in <code class="docutils literal notranslate"><span class="pre">entity_to_component[2]</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">*</span> <span class="nf">get_component</span><span class="p">(</span><span class="n">zel_entity_id</span> <span class="n">entity</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">zel_index</span> <span class="n">entity_index</span> <span class="o">=</span> <span class="n">ZEL_GET_INDEX</span><span class="p">(</span><span class="n">entity</span><span class="p">);</span>
+        <span class="n">zel_generation</span> <span class="n">entity_generation</span> <span class="o">=</span> <span class="n">ZEL_GET_GENERATION</span><span class="p">(</span><span class="n">entity</span><span class="p">);</span>
+        <span class="n">zel_generational_ptr</span> <span class="n">component_pointer</span> <span class="o">=</span> <span class="n">entity_to_component</span><span class="p">[</span><span class="n">entity_index</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">component_pointer</span><span class="p">.</span><span class="n">generation</span> <span class="o">!=</span> <span class="n">entity_generation</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">zel_print</span><span class="p">(</span><span class="s">&quot;[zel_component class] get component return nullptr | Entity: %d | Type: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="k">typeid</span><span class="p">(</span><span class="n">T</span><span class="p">).</span><span class="n">name</span><span class="p">());</span>
+                <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">zel_index</span> <span class="n">component_index</span> <span class="o">=</span> <span class="n">ZEL_GET_INDEX</span><span class="p">(</span><span class="n">component_pointer</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">&amp;</span><span class="n">components</span><span class="p">[</span><span class="n">component_index</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="creating-an-entity">

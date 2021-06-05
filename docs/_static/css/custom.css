@@ -1100,15 +1100,13 @@ html.writer-html4 .rst-content dl:not(.docutils) dl:not(.field-list)>dt, html.wr
 .in-depth .admonition-title:after,
 .toggle .admonition-title:after {
     /* content: " ▼"; */
-     content: " ▶"; 
+     content: " ▸"; 
 }
 
 .in-depth .admonition-title.open:after,
-.toggle .admonition-title.open:after {
-    /* content: " ▲"; */
-    /* content: " ◤"; */    
-    content: " ◢"; 
-    /* content: " ▸"; */
+.toggle .admonition-title.open:after {   
+/*    content: " ◢"; */
+     content: " ▾"; 
 }
 
 .rst-content .in-depth blockquote,

@@ -27,6 +27,52 @@ So when an entity gets created or destroyed in that spot.
 When trying to get a component through an entity id, the generational index is compared.
 If the generational index in that entity spot is different than the generational index in the entity id, it indicates the entity does not actually have that component or has been destroyed.
 
+.. admonition:: In Depth
+	:class: toggle
+
+	Components get stored in a class specific for that component type.
+	Systems are just functions which get tracked by the level.
+	Therefore Entities only have to be a unique number for them to work.
+	With that unique ID we can identify groups of components.
+
+	We use the generational index for some security and robustness.
+	There are macros in the ``zel_entities.h`` file to help make an ID from an index and a generational index.
+
+	.. code-block:: cpp
+
+		#define ZEL_CAPACITY_GENERATION 0xFF
+		#define ZEL_CAPACITY_ENTITIES 0xFFFFFF
+		#define ZEL_MAX_ENTITIES 0xFFFF
+		#define ZEL_GENERATION_BIT 24
+
+		#define ZEL_GET_GENERATION(id) ((id & 0xFF000000) >> ZEL_GENERATION_BIT)
+		#define ZEL_GET_INDEX(id) (id & ZEL_CAPACITY_ENTITIES)
+		#define ZEL_CREATE_ID(generation, index) (generation << ZEL_GENERATION_BIT) | index
+
+
+	Entities are simply stored inside ``zel_level_t``.
+	The position inside the ``std::vector``, the index, decides part of their ID. The index in that vector is also the index used in the Component class for the mapping of components. 
+	So the data in ``entity_to_component`` points to the component that is attached to a particular entity.
+	If the entity has index 2 in the level struct, then its components can be found in ``entity_to_component[2]``.
+
+	.. code-block:: cpp
+
+		T* get_component(zel_entity_id entity)
+		{
+			zel_index entity_index = ZEL_GET_INDEX(entity);
+			zel_generation entity_generation = ZEL_GET_GENERATION(entity);
+			zel_generational_ptr component_pointer = entity_to_component[entity_index];
+			if (component_pointer.generation != entity_generation)
+			{
+				zel_print("[zel_component class] get component return nullptr | Entity: %d | Type: %s\n", entity, typeid(T).name());
+				return nullptr;
+			}
+
+			zel_index component_index = ZEL_GET_INDEX(component_pointer.id);
+			return &components[component_index];
+		}
+	
+
 Creating an entity
 ^^^^^^^^^^^^^^^^^^
 Entities need to be created through a level.

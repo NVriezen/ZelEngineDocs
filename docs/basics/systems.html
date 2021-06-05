@@ -301,6 +301,22 @@ To register a system you also need to input a name, which is used to unregister 
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">zel_level_unregister_system</span><span class="p">(</span><span class="n">example_level</span><span class="p">,</span> <span class="s">&quot;example_system&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+<div class="toggle admonition">
+<p class="admonition-title">In Depth</p>
+<p>Systems are literally functions with a name attached to them.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">zel_level_t</span> <span class="n">_zel_level_t</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="nf">void</span><span class="p">(</span><span class="o">*</span><span class="n">zel_system_t</span><span class="p">)(</span><span class="n">_zel_level_t</span><span class="o">*</span> <span class="n">level</span><span class="p">,</span> <span class="kt">float</span> <span class="n">delta_time</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">zel_system_t</span></code> is just a function pointer.
+It gets associated to a string, the system name, when you register a system in a level.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">zel_level_register_system</span><span class="p">(</span><span class="n">zel_level_t</span><span class="o">*</span> <span class="n">level</span><span class="p">,</span> <span class="n">zel_system_t</span> <span class="n">system_update</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">system_name</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">level</span><span class="o">-&gt;</span><span class="n">systems</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span> <span class="n">system_name</span><span class="p">,</span> <span class="n">system_update</span> <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 <p>For more information, see the <a class="reference internal" href="../api/file_zel_level_h.html#zel-level-h"><span class="std std-ref">zel_level.h</span></a> section.</p>
 </div>
 <div class="section" id="entities-list-iterator">

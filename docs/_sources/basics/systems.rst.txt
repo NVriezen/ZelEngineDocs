@@ -29,6 +29,26 @@ Unregistering a system is done in somewhat the same way.
 
 	zel_level_unregister_system(example_level, "example_system");
 
+.. admonition:: In Depth
+	:class: toggle
+
+	Systems are literally functions with a name attached to them.
+
+	.. code-block:: cpp
+
+		typedef struct zel_level_t _zel_level_t;
+		typedef void(*zel_system_t)(_zel_level_t* level, float delta_time);
+
+	``zel_system_t`` is just a function pointer.
+	It gets associated to a string, the system name, when you register a system in a level.
+
+	.. code-block:: cpp
+
+		void zel_level_register_system(zel_level_t* level, zel_system_t system_update, const char* system_name)
+		{
+			level->systems.insert({ system_name, system_update });
+		}
+
 For more information, see the :ref:`zel_level.h<zel_level_h>` section.
 
 Entities list iterator
