@@ -1097,14 +1097,14 @@ html.writer-html4 .rst-content dl:not(.docutils) dl:not(.field-list)>dt, html.wr
     color: var(--admonition-toggle-title-color);
 }
 
-.in-depth .admonition-title:after,
-.toggle .admonition-title:after {
+.in-depth .admonition-title:before,
+.toggle .admonition-title:before {
     /* content: " ▼"; */
      content: " ▸"; 
 }
 
-.in-depth .admonition-title.open:after,
-.toggle .admonition-title.open:after {   
+.in-depth .admonition-title.open:before,
+.toggle .admonition-title.open:before {   
 /*    content: " ◢"; */
      content: " ▾"; 
 }

@@ -1,4 +1,4 @@
-﻿.. _getting_started_quickstart:
+﻿.. _quickstart:
 
 Quick Start
 ===========
@@ -28,14 +28,15 @@ Then register a system to process those components.
 Logic
 -----
 The function ``zel_logic`` is the place where systems get executed.
-They process components and may change their data.
-
+The systems process components and may change their data.
 It takes ``delta_time`` as a parameter.
 This is the passed time between the previous and current frame.
 
+The for-loop inside ``zel_logic`` iterates over all registered systems and executes them.
+
 .. warning::
 
-	``zel_logic`` may not be registered as a system through the ``zel_level_register_system`` function.
+	``zel_logic`` may not be registered as a system through the ``zel_level_register_system`` function. This would create an infinite loop.
 
 Render
 ------
@@ -60,4 +61,7 @@ To see what exactly is available in the Zel API, please look at the ``zel_api.h`
 What's Next?
 ------------
 Now that you have a working project and a basic understanding of the engine's structure, you can check out the :ref:`Examples <examples>`.
+
+If you've used a game engine before, you may want to check out the :ref:`Migration Guide <migrationguide>`.
+It will help you better understand what this engine does differently from the engines you are used to.
 

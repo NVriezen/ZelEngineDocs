@@ -110,11 +110,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#setting-up-visual-studio">Setting Up Visual Studio</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#directories-setup">Directories Setup</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#include">Include</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#library">Library</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#configurations">Configurations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#testing-the-setup">Testing the setup</a></li>
 </ul>
@@ -133,10 +128,10 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#what-s-next">What’s Next?</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="migrationguide.html">Migration Guide</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Basics</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../basics/migrationguide.html">Migrating from a different engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basics/levels.html">Levels</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../basics/levels.html#creating-a-level">Creating a level</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../basics/levels.html#registering-components">Registering components</a></li>
@@ -163,6 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#template">Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#registering-a-system">Registering a system</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#entities-list-iterator">Entities list iterator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/systems.html#accessing-entities-in-a-system">Accessing Entities in a system</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../basics/rendering.html">Rendering</a></li>
@@ -317,26 +313,6 @@ Then set the Platform Toolset and SDK to the installed versions on your system.<
 </div>
 <p>After Visual Studio has loaded the solution, you’ll see two projects.
 One named <code class="docutils literal notranslate"><span class="pre">Application</span></code> and another named <code class="docutils literal notranslate"><span class="pre">ZelGameEngine</span></code>.</p>
-<div class="section" id="directories-setup">
-<h3>Directories Setup<a class="headerlink" href="#directories-setup" title="Permalink to this headline">¶</a></h3>
-<p>Right-click on the <code class="docutils literal notranslate"><span class="pre">ZelGameEngine</span></code> project and select <code class="docutils literal notranslate"><span class="pre">Properties</span></code>.
-This should open a window where you can change the configuration properties.
-In the top left set the configuration to <code class="docutils literal notranslate"><span class="pre">All</span> <span class="pre">Configurations</span></code>.
-After that select <code class="docutils literal notranslate"><span class="pre">VC++</span> <span class="pre">Directories</span></code> in the left column.
-Here we need to set up GLFW for the project.</p>
-<div class="section" id="include">
-<h4>Include<a class="headerlink" href="#include" title="Permalink to this headline">¶</a></h4>
-<p>Click the dropdown button in the <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">Directories</span></code> row on the right and then “Edit…”.
-You’ll see something like <code class="docutils literal notranslate"><span class="pre">$(SolutionDir)..\..\GLFW\glfw-3.3.2.bin.WIN64\include</span></code>.
-Change this path to where you stored the include folder of GLFW for the selected platform (in this example Windows 10 64-bit).</p>
-</div>
-<div class="section" id="library">
-<h4>Library<a class="headerlink" href="#library" title="Permalink to this headline">¶</a></h4>
-<p>Do the same for the <code class="docutils literal notranslate"><span class="pre">Library</span> <span class="pre">Directories</span></code> row as you did for the <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">Directories</span></code> one.
-Change the path to point towards the correct <code class="docutils literal notranslate"><span class="pre">lib-</span></code> folder based on your Visual Studio version.</p>
-<p>Great! GLFW should be setup now.</p>
-</div>
-</div>
 <div class="section" id="configurations">
 <h3>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline">¶</a></h3>
 <p>The engine works with two configurations: <code class="docutils literal notranslate"><span class="pre">Debug</span></code> and <code class="docutils literal notranslate"><span class="pre">Release</span></code>.
@@ -358,9 +334,9 @@ In the command prompt window you can see the engine’s version as well as “He
 </div>
 <div class="section" id="what-s-next">
 <h2>What’s Next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
-<p>Now that you have everything setup, you can create your game.
-You may check out the <a class="reference internal" href="../examples/index.html#examples"><span class="std std-ref">Examples</span></a> section to help you get underway.
-Otherwise check out the <a class="reference internal" href="../api/index.html#api"><span class="std std-ref">API Reference</span></a>.</p>
+<p>Now that you have everything setup, you can start creating your game.
+You may check out the <a class="reference internal" href="quickstart.html#quickstart"><span class="std std-ref">Quick Start</span></a> section to help you get up to speed. There is also a <a class="reference internal" href="../basics/migrationguide.html#migrationguide"><span class="std std-ref">Migration Guide</span></a> to help you migrate from a different engine to the Zel Game Engine.</p>
+<p>If you prefer to dive straight in, there are some <a class="reference internal" href="../examples/index.html#examples"><span class="std std-ref">Examples</span></a> available and you can dig through the <a class="reference internal" href="../api/index.html#api"><span class="std std-ref">API Reference</span></a></p>
 </div>
 </div>
 

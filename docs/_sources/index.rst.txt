@@ -9,7 +9,7 @@ Welcome to Zel Game Engine's documentation!
 This is the documentation page for the **Zel Game Engine.**
 Here you will find information regarding what features are available together with some examples.
 
-.. tip:: If you want to get started straight away, please check out the :ref:`Quick Start<getting_started_quickstart>` page.
+.. tip:: If you want to get started straight away, please check out the :ref:`Quick Start<quickstart>` page.
 
 .. note:: This is the documentation for **version 0.2.0** of the engine
 
@@ -26,13 +26,13 @@ Here you will find information regarding what features are available together wi
 
    getting_started/installation
    getting_started/quickstart
-   getting_started/migrationguide
 
 .. toctree::
    :maxdepth: 2
    :caption: Basics
    :glob:
 
+   basics/migrationguide
    basics/levels
    basics/entities
    basics/components

@@ -10,8 +10,25 @@ Template
 ^^^^^^^^
 Systems always need to have the same parameters and a name.
 A template is included to make it easier to create systems.
-In the ``Application`` project's ``include`` folder you will find ``example_system.h``.
-Copy this code to create your own systems.
+In the ``Application`` project's ``include`` folder you will find ``example_system.h`` with the following code.
+This file can be used for your own systems.
+
+.. code-block:: cpp
+
+	#pragma once
+	#include <zel_api.h>
+	#include <zel_math.h>
+
+	const char* example_system_name = "example_system";
+
+	void example_system_update(zel_level_t* level, float delta_time)
+	{
+		for (zel_entity_id entity : zel_entities_list<zel_transform_t>(level))
+		{
+			zel_level_get_component<zel_transform_t>(level, entity)->position.x += 1;
+			//zel_print("New transform X position | entity [%d]: %0.1f\n", entity, zel_level_get_component<zel_transform_t>(level, entity)->position.x);
+		}
+	}
 
 Registering a system
 ^^^^^^^^^^^^^^^^^^^^
@@ -29,7 +46,7 @@ Unregistering a system is done in somewhat the same way.
 
 	zel_level_unregister_system(example_level, "example_system");
 
-.. admonition:: In Depth
+.. admonition:: Click me to learn more
 	:class: toggle
 
 	Systems are literally functions with a name attached to them.
@@ -87,7 +104,32 @@ It's also not restricted to only one type. You can get a list of entities which 
 		//use the transform component here
 	}
 
+Accessing Entities in a system
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You may want to access a particular entity in a system.
+For example you only want to process the enemy's components.
+If all enemies have an ``enemy_ai`` component, you could use that component to identify all enemies.
+Iterating over those enemies in a system would look like the following.
 
-	
+.. code-block:: cpp
+
+	for (zel_entity_id entity : zel_entities_list<enemy_ai, zel_transform_t>(level))
+	{
+		//Only enemies with a transform component will be processed here
+	}
+
+Otherwise you could differentiate entities by adding a tag to them.
+This would just be a component, but we call it a tag because it's a component without any data.
+
+.. code-block:: cpp
+
+	struct enemy_tag { };
+	zel_level_register_component<enemy_tag>(example_level);
+	zel_level_add_component(example_level, entity, enemy_tag);
+
+	for (zel_entity_id entity : zel_entities_list<enemy_tag, zel_transform_t>(example_level))
+	{
+		//Only entities with the enemy tag and transform component will be processed here
+	}
 
 

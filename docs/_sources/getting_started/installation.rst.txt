@@ -53,27 +53,6 @@ Make sure to click "OK", otherwise the engine probably will not run.
 After Visual Studio has loaded the solution, you'll see two projects.
 One named ``Application`` and another named ``ZelGameEngine``.
 
-Directories Setup
-^^^^^^^^^^^^^^^^^
-Right-click on the ``ZelGameEngine`` project and select ``Properties``.
-This should open a window where you can change the configuration properties.
-In the top left set the configuration to ``All Configurations``.
-After that select ``VC++ Directories`` in the left column.
-Here we need to set up GLFW for the project.
-
-Include
-"""""""
-Click the dropdown button in the ``Include Directories`` row on the right and then "Edit...".
-You'll see something like ``$(SolutionDir)..\..\GLFW\glfw-3.3.2.bin.WIN64\include``.
-Change this path to where you stored the include folder of GLFW for the selected platform (in this example Windows 10 64-bit).
-
-Library
-"""""""
-Do the same for the ``Library Directories`` row as you did for the ``Include Directories`` one.
-Change the path to point towards the correct ``lib-`` folder based on your Visual Studio version.
-
-Great! GLFW should be setup now.
-
 Configurations
 ^^^^^^^^^^^^^^
 The engine works with two configurations: ``Debug`` and ``Release``.
@@ -94,6 +73,7 @@ In the command prompt window you can see the engine's version as well as "Hello 
 
 What's Next?
 ------------
-Now that you have everything setup, you can create your game.
-You may check out the :ref:`Examples<examples>` section to help you get underway.
-Otherwise check out the :ref:`API Reference<api>`.
+Now that you have everything setup, you can start creating your game.
+You may check out the :ref:`Quick Start<quickstart>` section to help you get up to speed. There is also a :ref:`Migration Guide<migrationguide>` to help you migrate from a different engine to the Zel Game Engine.
+
+If you prefer to dive straight in, there are some :ref:`Examples<examples>` available and you can dig through the :ref:`API Reference<api>`

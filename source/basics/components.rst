@@ -3,15 +3,15 @@
 Components
 ==========
 Components are represented as Plain Old Data or POD structs.
-That means components do not contain any logic, they only contain data.
+That means components do not contain any logic, they **only contain data**.
 Components are manipulated through :ref:`Systems<systems>`.
 
 Some components are built in to the engine.
-To see which components are built in or predefined, please see :ref:`zel_component_builtin<zel_component_builtin_h>`.
+To see which components are **built in** or predefined, please see :ref:`zel_component_builtin<zel_component_builtin_h>`.
 
 Registering components
 ^^^^^^^^^^^^^^^^^^^^^^
-To be able to use components in a level, you first have to register them.
+To be able to use components in a level, you first have to **register** them.
 This way you keep the memory footprint to a minimum.
 This registering of components can be done at any moment.
 But it is recommended to do this while initializing a level.

@@ -37,7 +37,7 @@ Some components need to clean up some stuff. For example; materials may need to 
 
 	zel_level_register_component_with_destroy<zel_material_t>(example_level, zel_material_destroy);
 
-.. admonition:: In Depth
+.. admonition:: Click me to learn more
 	:class: toggle
 
 	The reason that you need to register your components lies in the way the engine stores them. Components get stored in an instance of the templated class ``ZelComponent`` that inherits from ``ZelComponentBase``.

@@ -27,7 +27,7 @@ So when an entity gets created or destroyed in that spot.
 When trying to get a component through an entity id, the generational index is compared.
 If the generational index in that entity spot is different than the generational index in the entity id, it indicates the entity does not actually have that component or has been destroyed.
 
-.. admonition:: In Depth
+.. admonition:: Click me to learn more
 	:class: toggle
 
 	Components get stored in a class specific for that component type.
