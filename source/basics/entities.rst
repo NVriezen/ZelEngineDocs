@@ -9,6 +9,10 @@ You may look at an entity like a container of components.
 You combine certain components together by adding it to an entity.
 This way you can construct, for example, the player.
 
+.. tip::
+
+	Entities and Components work differently compared to most popular engines. Please read through the `Migration Guide <https://nvriezen.github.io/ZelMigrationGuide/>`_ to understand better how to use Entities and Components in the Zel Game Engine.
+
 Entity IDs
 ^^^^^^^^^^
 Entities in this engine's implementation are nothing more than 32-bit integers.

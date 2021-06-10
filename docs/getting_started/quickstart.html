@@ -119,6 +119,7 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#migrating-from-a-different-engine">Migrating from a different engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#user-code">User Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#initialization">Initialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#logic">Logic</a></li>
@@ -280,6 +281,16 @@
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p>To install the engine, please refer to <a class="reference internal" href="installation.html#getting-started-installation"><span class="std std-ref">Installation</span></a></p>
 </div>
+<div class="section" id="migrating-from-a-different-engine">
+<h2>Migrating from a different engine<a class="headerlink" href="#migrating-from-a-different-engine" title="Permalink to this headline">¶</a></h2>
+<p>You may have used a game engine before.
+This engine works different from most engines.
+Therefore this engine has its own <a class="reference external" href="https://nvriezen.github.io/ZelMigrationGuide/">Migration Guide</a>.
+It is the place to go when you’ve used other engines before.</p>
+<p>This guide will help you get familiar with the Zel Game Engine.
+It explains the differences between popular game engines you might have used before. Helping you change your way of thinking while using this engine.</p>
+<p>I can not tell you enough how much this guide can help you, so please check it out.</p>
+</div>
 <div class="section" id="user-code">
 <h2>User Code<a class="headerlink" href="#user-code" title="Permalink to this headline">¶</a></h2>
 <p>There are two projects, the <code class="docutils literal notranslate"><span class="pre">ZelGameEngine</span></code> which is the engine itself and <code class="docutils literal notranslate"><span class="pre">Application</span></code> which is your game.
@@ -303,6 +314,10 @@ The systems process components and may change their data.
 It takes <code class="docutils literal notranslate"><span class="pre">delta_time</span></code> as a parameter.
 This is the passed time between the previous and current frame.</p>
 <p>The for-loop inside <code class="docutils literal notranslate"><span class="pre">zel_logic</span></code> iterates over all registered systems and executes them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The engine expect you to write code in systems. This means you don’t write code directly in <code class="docutils literal notranslate"><span class="pre">zel_logic</span></code>.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><code class="docutils literal notranslate"><span class="pre">zel_logic</span></code> may not be registered as a system through the <code class="docutils literal notranslate"><span class="pre">zel_level_register_system</span></code> function. This would create an infinite loop.</p>
@@ -311,8 +326,8 @@ This is the passed time between the previous and current frame.</p>
 <div class="section" id="render">
 <h2>Render<a class="headerlink" href="#render" title="Permalink to this headline">¶</a></h2>
 <p>Of course <code class="docutils literal notranslate"><span class="pre">zel_render</span></code> is the place where everything gets rendered.
-Right now you can only clear the screen with a color.
-Soon the Rendering API will get re-implemented and then this function should process all render data.</p>
+This function should process all render data.
+If you are unsure how the function does this, you may want to leave the code as is.</p>
 <p>Logic and Rendering is seperated here because of the plans to multithread those functions in the future.
 It also forces you to think modulair and can help in certain situations to maintain a pleasant gaming experience.</p>
 </div>

@@ -36,9 +36,9 @@ This way you'll download the latest master version of the engine.
 
 Setting Up Visual Studio
 ------------------------
-Right now the engine has only been used with Visual Studio 2015.
+Right now the engine has been used with Visual Studio 2015, 2017 and 2019.
+Any Visual Studio version from VS2015 onwards should therefore be good.
 Other build environments won't be supported anytime soon.
-Any Visual Studio version from VS2015 onwards should be good though.
 
 Open the solution through ``ZelGameEngine.sln``
 You may see an upgrade prompt when opening the solution.

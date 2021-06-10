@@ -9,6 +9,10 @@ Components are manipulated through :ref:`Systems<systems>`.
 Some components are built in to the engine.
 To see which components are **built in** or predefined, please see :ref:`zel_component_builtin<zel_component_builtin_h>`.
 
+.. tip::
+
+	Entities and Components work differently compared to most popular engines. Please read through the `Migration Guide <https://nvriezen.github.io/ZelMigrationGuide/>`_ to understand better how to use Entities and Components in the Zel Game Engine.
+
 Registering components
 ^^^^^^^^^^^^^^^^^^^^^^
 To be able to use components in a level, you first have to **register** them.

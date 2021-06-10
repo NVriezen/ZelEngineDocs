@@ -8,6 +8,18 @@ Setup
 -----
 To install the engine, please refer to :ref:`Installation<getting_started_installation>`
 
+Migrating from a different engine
+---------------------------------
+You may have used a game engine before.
+This engine works different from most engines.
+Therefore this engine has its own `Migration Guide <https://nvriezen.github.io/ZelMigrationGuide/>`_.
+It is the place to go when you've used other engines before.
+
+This guide will help you get familiar with the Zel Game Engine.
+It explains the differences between popular game engines you might have used before. Helping you change your way of thinking while using this engine.
+
+I can not tell you enough how much this guide can help you, so please check it out.
+
 User Code
 ---------
 There are two projects, the ``ZelGameEngine`` which is the engine itself and ``Application`` which is your game.
@@ -34,6 +46,10 @@ This is the passed time between the previous and current frame.
 
 The for-loop inside ``zel_logic`` iterates over all registered systems and executes them.
 
+.. note:: 
+
+	The engine expect you to write code in systems. This means you don't write code directly in ``zel_logic``.
+
 .. warning::
 
 	``zel_logic`` may not be registered as a system through the ``zel_level_register_system`` function. This would create an infinite loop.
@@ -41,8 +57,8 @@ The for-loop inside ``zel_logic`` iterates over all registered systems and execu
 Render
 ------
 Of course ``zel_render`` is the place where everything gets rendered.
-Right now you can only clear the screen with a color.
-Soon the Rendering API will get re-implemented and then this function should process all render data.
+This function should process all render data.
+If you are unsure how the function does this, you may want to leave the code as is.
 
 Logic and Rendering is seperated here because of the plans to multithread those functions in the future.
 It also forces you to think modulair and can help in certain situations to maintain a pleasant gaming experience.
