@@ -8,17 +8,17 @@ Setup
 -----
 To install the engine, please refer to :ref:`Installation<getting_started_installation>`
 
-Migrating from a different engine
+Coming from a different engine
 ---------------------------------
 You may have used a game engine before.
-This engine works different from most engines.
+This engine works differently compared to most engines.
 Therefore this engine has its own `Migration Guide <https://nvriezen.github.io/ZelMigrationGuide/>`_.
 It is the place to go when you've used other engines before.
 
 This guide will help you get familiar with the Zel Game Engine.
 It explains the differences between popular game engines you might have used before. Helping you change your way of thinking while using this engine.
 
-I can not tell you enough how much this guide can help you, so please check it out.
+I can not emphasize enough how much this guide can help you, so please check it out.
 
 User Code
 ---------

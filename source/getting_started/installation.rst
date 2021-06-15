@@ -74,6 +74,9 @@ In the command prompt window you can see the engine's version as well as "Hello 
 What's Next?
 ------------
 Now that you have everything setup, you can start creating your game.
-You may check out the :ref:`Quick Start<quickstart>` section to help you get up to speed. There is also a :ref:`Migration Guide<migrationguide>` to help you migrate from a different engine to the Zel Game Engine.
+It is **highly recommended** to read the :ref:`Migration Guide<migrationguide>` first. It will be the best way to get you familiar with the Zel Game Engine. It will explain the differences between this engine and the ones you are used to.
 
-If you prefer to dive straight in, there are some :ref:`Examples<examples>` available and you can dig through the :ref:`API Reference<api>`
+After that you can take a look at the :ref:`Quick Start<quickstart>` section to start writing your first code. Don't forget to keep the :ref:`Migration Guide<migrationguide>` at hand for when you don't understand something. It will definitely help you out.
+
+If you prefer to dive straight in, there are some :ref:`Examples<examples>` available and you can dig through the :ref:`API Reference<api>`.
+Some pages have *"Click Me"* sections which give you an in-depth explanation about the code.
