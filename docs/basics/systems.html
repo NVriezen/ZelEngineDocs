@@ -150,6 +150,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="components.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components.html#creating-components">Creating components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components.html#registering-components">Registering components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components.html#adding-components">Adding components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components.html#checking-getting-components">Checking &amp; getting components</a></li>
@@ -379,10 +380,14 @@ Iterating over those enemies in a system would look like the following.</p>
 </div>
 <p>Otherwise you could differentiate entities by adding a tag to them.
 This would just be a component, but we call it a tag because it’s a component without any data.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">enemy_tag</span> <span class="p">{</span> <span class="p">};</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//Put this at the top of a file</span>
+<span class="k">struct</span> <span class="nc">enemy_tag</span> <span class="p">{</span> <span class="p">};</span>
+
+<span class="c1">//This will go alongside other initialization code</span>
 <span class="n">zel_level_register_component</span><span class="o">&lt;</span><span class="n">enemy_tag</span><span class="o">&gt;</span><span class="p">(</span><span class="n">example_level</span><span class="p">);</span>
 <span class="n">zel_level_add_component</span><span class="p">(</span><span class="n">example_level</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">enemy_tag</span><span class="p">);</span>
 
+<span class="c1">//This will basically be your system</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">zel_entity_id</span> <span class="nl">entity</span> <span class="p">:</span> <span class="n">zel_entities_list</span><span class="o">&lt;</span><span class="n">enemy_tag</span><span class="p">,</span> <span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">example_level</span><span class="p">))</span>
 <span class="p">{</span>
         <span class="c1">//Only entities with the enemy tag and transform component will be processed here</span>

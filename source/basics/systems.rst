@@ -123,10 +123,14 @@ This would just be a component, but we call it a tag because it's a component wi
 
 .. code-block:: cpp
 
+	//Put this at the top of a file
 	struct enemy_tag { };
+
+	//This will go alongside other initialization code
 	zel_level_register_component<enemy_tag>(example_level);
 	zel_level_add_component(example_level, entity, enemy_tag);
 
+	//This will basically be your system
 	for (zel_entity_id entity : zel_entities_list<enemy_tag, zel_transform_t>(example_level))
 	{
 		//Only entities with the enemy tag and transform component will be processed here

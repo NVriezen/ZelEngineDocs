@@ -13,6 +13,28 @@ To see which components are **built in** or predefined, please see :ref:`zel_com
 
 	Entities and Components work differently compared to most popular engines. Please read through the `Migration Guide <https://nvriezen.github.io/ZelMigrationGuide/>`_ to understand better how to use Entities and Components in the Zel Game Engine.
 
+Creating components
+^^^^^^^^^^^^^^^^^^^^
+Components are nothing more than just POD structs.
+Therefore the creating of components is rather simple if you know how structs work.
+
+.. code-block:: cpp
+
+	struct player_t
+	{
+		std::string name;
+		float score;
+	};
+
+When we want to add a component to an entity, we first need to create it.
+Remember that it's just a struct.
+
+.. code-block:: cpp
+
+	player_t player_one { "Lorem", 0 };
+
+The code above would create the player component which contains the name "Lorem" and has a score of 0.
+
 Registering components
 ^^^^^^^^^^^^^^^^^^^^^^
 To be able to use components in a level, you first have to **register** them.
