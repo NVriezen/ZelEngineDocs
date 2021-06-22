@@ -4,6 +4,10 @@ Installation
 ============
 This page describes the process to install the Zel Game Engine on your machine.
 
+.. attention:: 
+
+	Make sure to not have any spaces in the file path! So instead of having ``C:/My Projects/Zel Game Engine/ZelGameEngine.sln`` you need to remove the spaces and do it like this ``C:/My_Projects/Zel_Game_Engine/ZelGameEngine.sln``
+
 Downloading The Engine
 ----------------------
 First you need to download the required files.
