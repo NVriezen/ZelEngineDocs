@@ -49,9 +49,9 @@ Some components need to clean up some stuff. For example; materials may need to 
 		template <typename T>
 		void zel_level_register_component(zel_level_t* level)
 		{
-			std::string type_name = typeid(T).name();
+			std::type_index type_index = std::type_index(typeid(T));
 
-			if (level->components.find(type_name) != level->components.end())
+			if (level->components.find(type_index) != level->components.end())
 			{
 				//The component type is already registered
 				return;
@@ -59,7 +59,7 @@ Some components need to clean up some stuff. For example; materials may need to 
 
 			ZelComponent<T>* new_component_type = new ZelComponent<T>();
 			ZelComponentBase* base_component_type = new_component_type;
-			level->components.insert({ type_name, base_component_type });
+			level->components.insert({ type_index, base_component_type });
 		}
 
 	If you forget to register a component type, then it can't be stored and the engine will crash.

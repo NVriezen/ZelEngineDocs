@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Systems &mdash; Zel Game Engine 0.2.0 documentation</title>
+  <title>Systems &mdash; Zel Game Engine 0.4.0 documentation</title>
   
 
   
@@ -298,10 +298,12 @@ This file can be used for your own systems.</p>
 
 <span class="kt">void</span> <span class="nf">example_system_update</span><span class="p">(</span><span class="n">zel_level_t</span><span class="o">*</span> <span class="n">level</span><span class="p">,</span> <span class="kt">float</span> <span class="n">delta_time</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">zel_entity_id</span> <span class="nl">entity</span> <span class="p">:</span> <span class="n">zel_entities_list</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">))</span>
+        <span class="n">zel_component_collection</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;</span> <span class="n">transform_collection</span> <span class="o">=</span> <span class="n">zel_component_collection_create</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">component_index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">component_index</span> <span class="o">&lt;</span> <span class="n">transform_collection</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">component_index</span><span class="o">++</span><span class="p">)</span>
         <span class="p">{</span>
-                <span class="n">zel_level_get_component</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">entity</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
-                <span class="c1">//zel_print(&quot;New transform X position | entity [%d]: %0.1f\n&quot;, entity, zel_level_get_component&lt;zel_transform_t&gt;(level, entity)-&gt;position.x);</span>
+                <span class="n">zel_transform_t</span><span class="o">*</span> <span class="n">transform</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">transform_collection</span><span class="p">.</span><span class="n">first</span><span class="p">)[</span><span class="n">component_index</span><span class="p">];</span>
+                <span class="n">transform</span><span class="o">-&gt;</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="c1">//zel_print(&quot;New transform X position | entity [%d]: %0.1f\n&quot;, transform_collection.entities[component_index], transform-&gt;position.x);</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -339,32 +341,27 @@ It gets associated to a string, the system name, when you register a system in a
 </div>
 <div class="section" id="entities-list-iterator">
 <h2>Entities list iterator<a class="headerlink" href="#entities-list-iterator" title="Permalink to this headline">¶</a></h2>
-<p>You can get a list of entities through the <code class="docutils literal notranslate"><span class="pre">zel_entities_list</span></code> iterator.
-This iterator goes through all entities and only returns the ones which have the components you need.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">zel_entities_list</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;</span> <span class="n">transform_list</span> <span class="o">=</span> <span class="n">zel_entities_list</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">);</span>
+<p>To access entities in systems there are actual three ways to do it.
+The key is to think about what data you need, how you access the data and profiling your code is important.</p>
+<p>So there is something called <strong>entity collection</strong>, which is simply a <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> that contains entities.
+Then we have the <strong>component collection</strong>, which is a struct containing pointers to the components.
+Finally there is the <strong>duo collection</strong>, which, as the name may suggest, contains entities as well as components.</p>
+<p>The easiest collection to use would be the entity collection.
+It will return a list of entities that have the components you want to access.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">zel_entity_id</span><span class="o">&gt;</span> <span class="n">entity_collection</span> <span class="o">=</span> <span class="n">zel_entity_collection_create</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Then to get the beginning or end of the list.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">zel_entities_list</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">beginning_of_list</span> <span class="o">=</span> <span class="n">transform_list</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-<span class="n">zel_entities_list</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">end_of_list</span> <span class="o">=</span> <span class="n">transform_list</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>There is also an easy way to iterate over the entities in the list.
-By using a for loop like so:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">zel_entity_id</span> <span class="nl">entity</span> <span class="p">:</span> <span class="n">zel_entities_list</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">))</span>
+<p>You can simply iterate over the entities because it’s a <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>.
+Then to access a component you can simply call <code class="docutils literal notranslate"><span class="pre">zel_level_get_component</span></code> with the entity as parameter.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">zel_entity_id</span><span class="o">&gt;</span> <span class="n">entity_collection</span> <span class="o">=</span> <span class="n">zel_entity_collection_create</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="p">,</span> <span class="n">zel_material_t</span><span class="p">,</span> <span class="n">zel_mesh_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">collection_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">collection_index</span> <span class="o">&lt;</span> <span class="n">entity_collection</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">collection_index</span><span class="o">++</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="c1">//use the transform component here</span>
+        <span class="n">zel_entity_id</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">entity_collection</span><span class="p">[</span><span class="n">collection_index</span><span class="p">];</span>
+        <span class="n">zel_transform_t</span><span class="o">*</span> <span class="n">transform_of_entity</span> <span class="o">=</span> <span class="n">zel_level_get_component</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">entity</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This is the recommended way to use the <code class="docutils literal notranslate"><span class="pre">zel_entities_list</span></code>.
-It’s also not restricted to only one type. You can get a list of entities which have a combination of multiple components.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">zel_entity_id</span> <span class="nl">entity</span> <span class="p">:</span> <span class="n">zel_entities_list</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="p">,</span> <span class="n">zel_material_t</span><span class="p">,</span> <span class="n">zel_mesh_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">))</span>
-<span class="p">{</span>
-        <span class="c1">//use the transform component here</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<p>As you can see in the code snippet above it is also possible to insert multiple component types. This will return all entities which have exactly that combination of components attached to them.</p>
 </div>
 <div class="section" id="accessing-entities-in-a-system">
 <h2>Accessing Entities in a system<a class="headerlink" href="#accessing-entities-in-a-system" title="Permalink to this headline">¶</a></h2>
@@ -372,9 +369,10 @@ It’s also not restricted to only one type. You can get a list of entities whic
 For example you only want to process the enemy’s components.
 If all enemies have an <code class="docutils literal notranslate"><span class="pre">enemy_ai</span></code> component, you could use that component to identify all enemies.
 Iterating over those enemies in a system would look like the following.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">zel_entity_id</span> <span class="nl">entity</span> <span class="p">:</span> <span class="n">zel_entities_list</span><span class="o">&lt;</span><span class="n">enemy_ai</span><span class="p">,</span> <span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">))</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">zel_entity_id</span><span class="o">&gt;</span> <span class="n">entity_collection</span> <span class="o">=</span> <span class="n">zel_entity_collection_create</span><span class="o">&lt;</span><span class="n">enemy_ai</span><span class="p">,</span> <span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">collection_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">collection_index</span> <span class="o">&lt;</span> <span class="n">entity_collection</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">collection_index</span><span class="o">++</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="c1">//Only enemies with a transform component will be processed here</span>
+        <span class="c1">//Only enemies with an enemy_ai and transform component will be processed here</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -388,7 +386,8 @@ This would just be a component, but we call it a tag because it’s a component 
 <span class="n">zel_level_add_component</span><span class="p">(</span><span class="n">example_level</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">enemy_tag</span><span class="p">);</span>
 
 <span class="c1">//This will basically be your system</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">zel_entity_id</span> <span class="nl">entity</span> <span class="p">:</span> <span class="n">zel_entities_list</span><span class="o">&lt;</span><span class="n">enemy_tag</span><span class="p">,</span> <span class="n">zel_transform_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">example_level</span><span class="p">))</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">zel_entity_id</span><span class="o">&gt;</span> <span class="n">entity_collection</span> <span class="o">=</span> <span class="n">zel_entity_collection_create</span><span class="o">&lt;</span><span class="n">zel_transform_t</span><span class="p">,</span> <span class="n">enemy_tag</span><span class="o">&gt;</span><span class="p">(</span><span class="n">level</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">collection_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">collection_index</span> <span class="o">&lt;</span> <span class="n">entity_collection</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">collection_index</span><span class="o">++</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="c1">//Only entities with the enemy tag and transform component will be processed here</span>
 <span class="p">}</span>

@@ -23,10 +23,12 @@ This file can be used for your own systems.
 
 	void example_system_update(zel_level_t* level, float delta_time)
 	{
-		for (zel_entity_id entity : zel_entities_list<zel_transform_t>(level))
+		zel_component_collection<zel_transform_t> transform_collection = zel_component_collection_create<zel_transform_t>(level);
+		for (size_t component_index = 1; component_index < transform_collection.length; component_index++)
 		{
-			zel_level_get_component<zel_transform_t>(level, entity)->position.x += 1;
-			//zel_print("New transform X position | entity [%d]: %0.1f\n", entity, zel_level_get_component<zel_transform_t>(level, entity)->position.x);
+			zel_transform_t* transform = &(*transform_collection.first)[component_index];
+			transform->position.x += 1;
+			//zel_print("New transform X position | entity [%d]: %0.1f\n", transform_collection.entities[component_index], transform->position.x);
 		}
 	}
 
@@ -70,39 +72,33 @@ For more information, see the :ref:`zel_level.h<zel_level_h>` section.
 
 Entities list iterator
 ^^^^^^^^^^^^^^^^^^^^^^
-You can get a list of entities through the ``zel_entities_list`` iterator.
-This iterator goes through all entities and only returns the ones which have the components you need.
+To access entities in systems there are actual three ways to do it.
+The key is to think about what data you need, how you access the data and profiling your code is important.
+
+So there is something called **entity collection**, which is simply a ``std::vector`` that contains entities.
+Then we have the **component collection**, which is a struct containing pointers to the components.
+Finally there is the **duo collection**, which, as the name may suggest, contains entities as well as components.
+
+The easiest collection to use would be the entity collection.
+It will return a list of entities that have the components you want to access.
 
 .. code-block:: cpp
 
-	zel_entities_list<zel_transform_t> transform_list = zel_entities_list<zel_transform_t>(level);
+	std::vector<zel_entity_id> entity_collection = zel_entity_collection_create<zel_transform_t>(level);
 
-Then to get the beginning or end of the list.
-
-.. code-block:: cpp
-
-	zel_entities_list<zel_transform_t>::iterator beginning_of_list = transform_list.begin();
-	zel_entities_list<zel_transform_t>::iterator end_of_list = transform_list.end();
-
-There is also an easy way to iterate over the entities in the list.
-By using a for loop like so:
+You can simply iterate over the entities because it's a ``std::vector``.
+Then to access a component you can simply call ``zel_level_get_component`` with the entity as parameter.
 
 .. code-block:: cpp
 
-	for (zel_entity_id entity : zel_entities_list<zel_transform_t>(level))
+	std::vector<zel_entity_id> entity_collection = zel_entity_collection_create<zel_transform_t, zel_material_t, zel_mesh_t>(level);
+	for (size_t collection_index = 0; collection_index < entity_collection.size(); collection_index++)
 	{
-		//use the transform component here
+		zel_entity_id entity = entity_collection[collection_index];
+		zel_transform_t* transform_of_entity = zel_level_get_component<zel_transform_t>(level, entity);
 	}
 
-This is the recommended way to use the ``zel_entities_list``.
-It's also not restricted to only one type. You can get a list of entities which have a combination of multiple components.
-
-.. code-block:: cpp
-
-	for (zel_entity_id entity : zel_entities_list<zel_transform_t, zel_material_t, zel_mesh_t>(level))
-	{
-		//use the transform component here
-	}
+As you can see in the code snippet above it is also possible to insert multiple component types. This will return all entities which have exactly that combination of components attached to them.
 
 Accessing Entities in a system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -113,9 +109,10 @@ Iterating over those enemies in a system would look like the following.
 
 .. code-block:: cpp
 
-	for (zel_entity_id entity : zel_entities_list<enemy_ai, zel_transform_t>(level))
+	std::vector<zel_entity_id> entity_collection = zel_entity_collection_create<enemy_ai, zel_transform_t>(level);
+	for (size_t collection_index = 0; collection_index < entity_collection.size(); collection_index++)
 	{
-		//Only enemies with a transform component will be processed here
+		//Only enemies with an enemy_ai and transform component will be processed here
 	}
 
 Otherwise you could differentiate entities by adding a tag to them.
@@ -131,7 +128,8 @@ This would just be a component, but we call it a tag because it's a component wi
 	zel_level_add_component(example_level, entity, enemy_tag);
 
 	//This will basically be your system
-	for (zel_entity_id entity : zel_entities_list<enemy_tag, zel_transform_t>(example_level))
+	std::vector<zel_entity_id> entity_collection = zel_entity_collection_create<zel_transform_t, enemy_tag>(level);
+	for (size_t collection_index = 0; collection_index < entity_collection.size(); collection_index++)
 	{
 		//Only entities with the enemy tag and transform component will be processed here
 	}

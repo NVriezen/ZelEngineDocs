@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Levels &mdash; Zel Game Engine 0.2.0 documentation</title>
+  <title>Levels &mdash; Zel Game Engine 0.4.0 documentation</title>
   
 
   
@@ -315,9 +315,9 @@ So to be able to use the transform component in the level, you can do the follow
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">zel_level_register_component</span><span class="p">(</span><span class="n">zel_level_t</span><span class="o">*</span> <span class="n">level</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type_name</span> <span class="o">=</span> <span class="k">typeid</span><span class="p">(</span><span class="n">T</span><span class="p">).</span><span class="n">name</span><span class="p">();</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">type_index</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span><span class="p">(</span><span class="k">typeid</span><span class="p">(</span><span class="n">T</span><span class="p">));</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">level</span><span class="o">-&gt;</span><span class="n">components</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">type_name</span><span class="p">)</span> <span class="o">!=</span> <span class="n">level</span><span class="o">-&gt;</span><span class="n">components</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">level</span><span class="o">-&gt;</span><span class="n">components</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">type_index</span><span class="p">)</span> <span class="o">!=</span> <span class="n">level</span><span class="o">-&gt;</span><span class="n">components</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
         <span class="p">{</span>
                 <span class="c1">//The component type is already registered</span>
                 <span class="k">return</span><span class="p">;</span>
@@ -325,7 +325,7 @@ So to be able to use the transform component in the level, you can do the follow
 
         <span class="n">ZelComponent</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">new_component_type</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZelComponent</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
         <span class="n">ZelComponentBase</span><span class="o">*</span> <span class="n">base_component_type</span> <span class="o">=</span> <span class="n">new_component_type</span><span class="p">;</span>
-        <span class="n">level</span><span class="o">-&gt;</span><span class="n">components</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span> <span class="n">type_name</span><span class="p">,</span> <span class="n">base_component_type</span> <span class="p">});</span>
+        <span class="n">level</span><span class="o">-&gt;</span><span class="n">components</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span> <span class="n">type_index</span><span class="p">,</span> <span class="n">base_component_type</span> <span class="p">});</span>
 <span class="p">}</span>
 </pre></div>
 </div>

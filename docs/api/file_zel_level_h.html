@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>zel_level.h &mdash; Zel Game Engine 0.2.0 documentation</title>
+  <title>zel_level.h &mdash; Zel Game Engine 0.4.0 documentation</title>
   
 
   
@@ -353,8 +353,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4IDpE24zel_level_has_componentsbP11zel_level_t13zel_entity_id">
-<span id="_CPPv3IDpE24zel_level_has_componentsP11zel_level_t13zel_entity_id"></span><span id="_CPPv2IDpE24zel_level_has_componentsP11zel_level_t13zel_entity_id"></span><span class="pre">template&lt;</span><span class="pre">typename</span> <span class="pre">...</span><code class="sig-name descname"><span class="pre">T</span></code><span class="pre">&gt;</span><br /><span class="target" id="zel__level_8h_1a7304e27fd7c6c8292ab12dd6c048f96c"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">zel_level_has_components</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv411zel_level_t" title="zel_level_t"><span class="pre">zel_level_t</span></a> <span class="pre">*</span><em><span class="pre">level</span></em>, <a class="reference internal" href="file_zel_ecs_h.html#_CPPv413zel_entity_id" title="zel_entity_id"><span class="pre">zel_entity_id</span></a> <em><span class="pre">entity</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IDpE24zel_level_has_componentsbP11zel_level_t13zel_entity_id" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4I0DpE24zel_level_has_componentsbP11zel_level_t13zel_entity_id">
+<span id="_CPPv3I0DpE24zel_level_has_componentsP11zel_level_t13zel_entity_id"></span><span id="_CPPv2I0DpE24zel_level_has_componentsP11zel_level_t13zel_entity_id"></span><span class="pre">template&lt;</span><span class="pre">typename</span> <code class="sig-name descname"><span class="pre">A</span></code><span class="pre">,</span> <span class="pre">typename</span> <span class="pre">...</span><code class="sig-name descname"><span class="pre">T</span></code><span class="pre">&gt;</span><br /><span class="target" id="zel__level_8h_1a14964d2e19a8f87291916cd047777c8b"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">zel_level_has_components</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv411zel_level_t" title="zel_level_t"><span class="pre">zel_level_t</span></a> <span class="pre">*</span><em><span class="pre">level</span></em>, <a class="reference internal" href="file_zel_ecs_h.html#_CPPv413zel_entity_id" title="zel_entity_id"><span class="pre">zel_entity_id</span></a> <em><span class="pre">entity</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0DpE24zel_level_has_componentsbP11zel_level_t13zel_entity_id" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -382,7 +382,8 @@
 <dl class="cpp struct">
 <dt id="_CPPv411zel_level_t">
 <span id="_CPPv311zel_level_t"></span><span id="_CPPv211zel_level_t"></span><span id="zel_level_t"></span><span class="target" id="structzel__level__t"></span><em class="property"><span class="pre">struct</span> </em><code class="sig-name descname"><span class="pre">zel_level_t</span></code><a class="headerlink" href="#_CPPv411zel_level_t" title="Permalink to this definition">¶</a><br /></dt>
-<dd><em>#include &lt;zel_level.h&gt;</em><div class="breathe-sectiondef docutils container">
+<dd><em>#include &lt;zel_level.h&gt;</em><p>The struct which holds all the entities, components and systems data. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="cpp var">
 <dt id="_CPPv4N11zel_level_t10level_nameE">
@@ -391,7 +392,7 @@
 
 <dl class="cpp var">
 <dt id="_CPPv4N11zel_level_t10componentsE">
-<span id="_CPPv3N11zel_level_t10componentsE"></span><span id="_CPPv2N11zel_level_t10componentsE"></span><span id="zel_level_t::components__std::unordered_map:ss.ZelComponentBaseP:"></span><span class="target" id="structzel__level__t_1afe90a54ef1570d7ce2a032dc2d1f2c26"></span><span class="pre">std</span><span class="pre">::</span><span class="pre">unordered_map</span><span class="pre">&lt;</span><span class="pre">std</span><span class="pre">::</span><span class="pre">string</span><span class="pre">,</span> <a class="reference internal" href="class_ZelComponentBase.html#_CPPv416ZelComponentBase" title="ZelComponentBase"><span class="pre">ZelComponentBase</span></a><span class="pre">*</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">components</span></code><a class="headerlink" href="#_CPPv4N11zel_level_t10componentsE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N11zel_level_t10componentsE"></span><span id="_CPPv2N11zel_level_t10componentsE"></span><span id="zel_level_t::components__std::unordered_map:std::type_index.ZelComponentBaseP:"></span><span class="target" id="structzel__level__t_1aa733083e89ced60337bc2b4b6c8910ef"></span><span class="pre">std</span><span class="pre">::</span><span class="pre">unordered_map</span><span class="pre">&lt;</span><span class="pre">std</span><span class="pre">::</span><span class="pre">type_index</span><span class="pre">,</span> <a class="reference internal" href="class_ZelComponentBase.html#_CPPv416ZelComponentBase" title="ZelComponentBase"><span class="pre">ZelComponentBase</span></a><span class="pre">*</span><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">components</span></code><a class="headerlink" href="#_CPPv4N11zel_level_t10componentsE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">
