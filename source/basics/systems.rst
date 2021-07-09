@@ -70,9 +70,9 @@ Unregistering a system is done in somewhat the same way.
 
 For more information, see the :ref:`zel_level.h<zel_level_h>` section.
 
-Entities list iterator
+Accessing Components
 ^^^^^^^^^^^^^^^^^^^^^^
-To access entities in systems there are actual three ways to do it.
+To access entities and their components in systems there are actual three ways to do it.
 The key is to think about what data you need, how you access the data and profiling your code is important.
 
 So there is something called **entity collection**, which is simply a ``std::vector`` that contains entities.

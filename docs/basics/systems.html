@@ -159,7 +159,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Systems</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#template">Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#registering-a-system">Registering a system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#entities-list-iterator">Entities list iterator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-components">Accessing Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#accessing-entities-in-a-system">Accessing Entities in a system</a></li>
 </ul>
 </li>
@@ -339,9 +339,9 @@ It gets associated to a string, the system name, when you register a system in a
 </div>
 <p>For more information, see the <a class="reference internal" href="../api/file_zel_level_h.html#zel-level-h"><span class="std std-ref">zel_level.h</span></a> section.</p>
 </div>
-<div class="section" id="entities-list-iterator">
-<h2>Entities list iterator<a class="headerlink" href="#entities-list-iterator" title="Permalink to this headline">¶</a></h2>
-<p>To access entities in systems there are actual three ways to do it.
+<div class="section" id="accessing-components">
+<h2>Accessing Components<a class="headerlink" href="#accessing-components" title="Permalink to this headline">¶</a></h2>
+<p>To access entities and their components in systems there are actual three ways to do it.
 The key is to think about what data you need, how you access the data and profiling your code is important.</p>
 <p>So there is something called <strong>entity collection</strong>, which is simply a <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> that contains entities.
 Then we have the <strong>component collection</strong>, which is a struct containing pointers to the components.
